@@ -3,19 +3,19 @@
 /**
  * External dependencies
  */
-var webpack = require( 'webpack' ),
-	cp = require( 'child_process' ),
-	fs = require( 'fs' ),
-	path = require( 'path' ),
-	async = require( 'async' ),
-	os = require( 'os' );
+import webpack from 'webpack';
+import cp from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import async from 'async';
+import os from 'os';
 
 /**
  * Internal dependencies
  */
-var webpackConfig = require( process.cwd() + '/webpack.config' ),
-	utils = require( '../utils' ),
-	config = require( '../../config' );
+import webpackConfig from 'webpack.config.babel';
+import utils from '../utils';
+import config from '../../config';
 
 /**
  * Variables

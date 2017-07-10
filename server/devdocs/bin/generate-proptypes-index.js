@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require( 'babel-register' );
 
 /**
  * This file generates an index of proptypes by component displayname, slug and folder name
@@ -9,7 +10,7 @@ const startTime = process.hrtime();
 /**
  * External Dependencies
  */
-require( 'babel-register' );
+
 const fs = require( 'fs' );
 const path = require( 'path' );
 const reactDocgen = require( 'react-docgen' );

@@ -1,21 +1,22 @@
-/***** WARNING: No ES6 modules here. Not transpiled! *****/
 
 /**
  * External dependencies
  */
-const fs = require( 'fs' );
-const HappyPack = require( 'happypack' );
-const HardSourceWebpackPlugin = require( 'hard-source-webpack-plugin' );
-const os = require( 'os' );
-const path = require( 'path' );
-const webpack = require( 'webpack' );
-const _ = require( 'lodash' );
+import HappyPack from 'happypack';
+import * as fs from 'fs';
+import * as HardSourceWebpackPlugin from 'hard-source-webpack-plugin';
+import * as os from 'os';
+import * as path from 'path';
+import * as webpack from 'webpack';
+import * as _ from 'lodash';
 
 /**
  * Internal dependencies
  */
-const cacheIdentifier = require( './server/bundler/babel/babel-loader-cache-identifier' );
-const config = require( 'config' );
+import cacheIdentifier from './server/bundler/babel/babel-loader-cache-identifier';
+import config from 'config';
+import babelConfig from 'babel-config-es-modules';
+
 const isWindows = os.type() === 'Windows_NT';
 
 /**
@@ -67,8 +68,9 @@ const babelLoader = {
 		] ],
 		cacheDirectory: path.join( __dirname, 'build', '.babel-server-cache' ),
 		cacheIdentifier: cacheIdentifier,
+		...babelConfig
 	}
-}
+};
 
 // happypack is not compatible with windows: https://github.com/amireh/happypack/blob/caaed26eec1795d464ac4b66abd29e60343e6252/README.md#does-it-work-under-windows
 const jsLoader = isWindows ? babelLoader : 'happypack/loader';
@@ -122,6 +124,7 @@ const webpackConfig = {
 		new webpack.DefinePlugin( {
 			'PROJECT_NAME': JSON.stringify( config( 'project' ) )
 		} ),
+		new webpack.optimize.ModuleConcatenationPlugin(),
 		! isWindows && new HappyPack( { loaders: [ babelLoader ] } ),
 		new webpack.NormalModuleReplacementPlugin( /^lib[\/\\]analytics$/, 'lodash/noop' ), // Depends on BOM
 		new webpack.NormalModuleReplacementPlugin( /^lib[\/\\]sites-list$/, 'lodash/noop' ), // Depends on BOM

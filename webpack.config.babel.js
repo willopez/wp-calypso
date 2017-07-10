@@ -1,9 +1,7 @@
-/***** WARNING: No ES6 modules here. Not transpiled! *****/
-
 /**
  * External dependencies
  */
-const _ = require( 'lodash' );
+import * as _ from 'lodash';
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const DashboardPlugin = require( 'webpack-dashboard/plugin' );
 const fs = require( 'fs' );
@@ -18,7 +16,8 @@ const NameAllModulesPlugin = require( 'name-all-modules-plugin' );
  * Internal dependencies
  */
 const cacheIdentifier = require( './server/bundler/babel/babel-loader-cache-identifier' );
-const config = require( './server/config' );
+const config = require( './server/config' ).default;
+import babelConfig from 'babel-config-es-modules';
 
 /**
  * Internal variables
@@ -59,7 +58,8 @@ const babelLoader = {
 		plugins: [ [
 			path.join( __dirname, 'server', 'bundler', 'babel', 'babel-plugin-transform-wpcalypso-async' ),
 			{ async: config.isEnabled( 'code-splitting' ) }
-		] ]
+		] ],
+		...babelConfig,
 	}
 };
 
@@ -160,6 +160,7 @@ const webpackConfig = {
 			return chunk.modules.map( m => path.relative( m.context, m.request ) ).join( '_' );
 		} ),
 		new NameAllModulesPlugin(),
+		new webpack.optimize.ModuleConcatenationPlugin(),
 	] ),
 	externals: [ 'electron' ]
 };

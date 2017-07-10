@@ -7,7 +7,7 @@ const path = require( 'path' );
 /**
  * Internal dependencies
  */
-const config = require( 'config' );
+const config = require( 'config' ).default;
 const sections = require( config( 'project' ) );
 const extensions = require( 'extensions' );
 

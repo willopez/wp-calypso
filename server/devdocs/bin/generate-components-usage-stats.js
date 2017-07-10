@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require( 'babel-register' );
 
 /**
  * This script generates a usage counts for the dependecies of a list of modules.
@@ -7,7 +8,7 @@
  */
 var async = require( 'async' ),
 	camelCase = require( 'lodash' ).camelCase,
-	config = require( 'config' ),
+	config = require( 'config' ).default,
 	fs = require( 'fs' ),
 	fspath = require( 'path' ),
 	globby = require( 'globby' ),
