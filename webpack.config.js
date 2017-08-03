@@ -6,11 +6,13 @@
 const _ = require( 'lodash' );
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const DashboardPlugin = require( 'webpack-dashboard/plugin' );
+const findRoot = require( 'find-root' );
 const fs = require( 'fs' );
 const HappyPack = require( 'happypack' );
 const HardSourceWebpackPlugin = require( 'hard-source-webpack-plugin' );
 const os = require( 'os' );
 const path = require( 'path' );
+const pathIsInside = require( 'path-is-inside' );
 const webpack = require( 'webpack' );
 const NameAllModulesPlugin = require( 'name-all-modules-plugin' );
 
@@ -23,9 +25,11 @@ const config = require( './server/config' );
 /**
  * Internal variables
  */
+const PROPKEY_ESNEXT = 'esnext';
 const calypsoEnv = config( 'env_id' );
 const bundleEnv = config( 'env' );
 const isWindows = os.type() === 'Windows_NT';
+const nodeModulesDir = path.resolve( __dirname, 'node_modules' );
 
 /**
  * This function scans the /client/extensions directory in order to generate a map that looks like this:
@@ -49,6 +53,20 @@ function getAliasesForExtensions() {
 		aliasesMap[ extensionName ] = path.join( extensionsDirectory, extensionName )
 	);
 	return aliasesMap;
+}
+
+/*
+ * Find package.json for file at `filepath`.
+ * Return `true` if it has a property whose key is `PROPKEY_ESNEXT` or 'module'.
+ */
+function hasPkgEsnext( filepath ) {
+	const pkgRoot = findRoot( filepath );
+	const packageJsonPath = path.resolve( pkgRoot, 'package.json' );
+	const packageJsonText = fs.readFileSync( packageJsonPath,
+		{ encoding: 'utf-8' } );
+	const packageJson = JSON.parse( packageJsonText );
+	return {}.hasOwnProperty.call( packageJson, PROPKEY_ESNEXT ) ||
+		{}.hasOwnProperty.call( packageJson, 'module' );
 }
 
 const babelLoader = {
@@ -84,7 +102,11 @@ const webpackConfig = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /node_modules[\/\\](?!notifications-panel)/,
+				// Should Babel transpile the file at `filepath`?
+				include: ( filepath ) => {
+					return ( ! pathIsInside( filepath, nodeModulesDir ) ||
+						hasPkgEsnext( filepath ) );
+				},
 				loader: [ jsLoader ]
 			},
 			{
@@ -116,6 +138,7 @@ const webpackConfig = {
 	},
 	resolve: {
 		extensions: [ '.json', '.js', '.jsx' ],
+		mainFields: [ PROPKEY_ESNEXT, 'browser', 'module', 'main' ],
 		modules: [
 			path.join( __dirname, 'client' ),
 			'node_modules',

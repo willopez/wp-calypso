@@ -247,6 +247,7 @@
     "eslint-eslines": "0.0.3",
     "eslint-plugin-react": "6.4.1",
     "eslint-plugin-wpcalypso": "3.3.0",
+    "find-root": "1.1.0",
     "glob": "7.0.3",
     "husky": "0.13.3",
     "jscodeshift": "0.3.30",
