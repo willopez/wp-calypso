@@ -5,6 +5,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import cookie from 'cookie';
+import { includes } from 'lodash';
 
 /**
  * Internal dependencies
@@ -83,7 +84,11 @@ class JetpackConnectAuthorizeForm extends Component {
 	}
 
 	isWCS() {
-		return 'woocommerce-services' === this.props.jetpackConnectAuthorize.queryObject.from;
+		const possibleFromParams = [
+			'woocommerce-services',
+			'woocommerce-services-auto-authorize',
+		];
+		return includes( possibleFromParams, this.props.jetpackConnectAuthorize.queryObject.from );
 	}
 
 	handleClickHelp = () => {
