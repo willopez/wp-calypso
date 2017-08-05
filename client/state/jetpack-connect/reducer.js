@@ -1,7 +1,13 @@
 /**
  * External dependencis
  */
-import { isEmpty, omit, pickBy } from 'lodash';
+import {
+	get,
+	isEmpty,
+	omit,
+	pickBy
+} from 'lodash';
+
 /**
  * Internal dependencies
  */
@@ -182,10 +188,12 @@ export function jetpackConnectAuthorize( state = {}, action ) {
 			);
 		case JETPACK_CONNECT_QUERY_SET:
 			const queryObject = Object.assign( {}, action.queryObject );
+			const shouldAutoAuthorize = ( 'woocommerce-services-auto-authorize' === get( queryObject, 'from' ) );
 			return Object.assign(
 				{},
 				buildDefaultAuthorizeState(),
-				{ queryObject: queryObject }
+				{ queryObject: queryObject },
+				{ autoAuthorize: shouldAutoAuthorize }
 			);
 		case JETPACK_CONNECT_CREATE_ACCOUNT:
 			return Object.assign(
