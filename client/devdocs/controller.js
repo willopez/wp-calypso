@@ -16,6 +16,7 @@ import DocsComponent from './main';
 import { login } from 'lib/paths';
 import SingleDocComponent from './doc';
 import DesignAssetsComponent from './design';
+import DataComponents from './data';
 import Blocks from './design/blocks';
 import DocsSelectors from './docs-selectors';
 import Typography from './design/typography';
@@ -98,6 +99,17 @@ const devdocs = {
 	design: function( context ) {
 		renderWithReduxStore(
 			React.createElement( DesignAssetsComponent, {
+				component: context.params.component
+			} ),
+			'primary',
+			context.store
+		);
+	},
+
+	// Data components
+	data: function( context ) {
+		renderWithReduxStore(
+			React.createElement( DataComponents, {
 				component: context.params.component
 			} ),
 			'primary',

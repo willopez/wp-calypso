@@ -68,6 +68,13 @@ export default React.createClass( {
 						/>
 						<SidebarItem
 							className="devdocs__navigation-item"
+							icon="briefcase"
+							label="Data Components"
+							link="/devdocs/data"
+							selected={ '/devdocs/data' === this.props.path }
+						/>
+						<SidebarItem
+							className="devdocs__navigation-item"
 							icon="plugins"
 							label="State Selectors"
 							link="/devdocs/selectors"
