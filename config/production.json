@@ -28,6 +28,7 @@
 		"help": true,
 		"help/courses": true,
 		"jetpack/api-cache": false,
+		"jitms": false,
 		"login/wp-login": true,
 		"manage/custom-post-types": true,
 		"manage/customize": true,
