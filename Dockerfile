@@ -29,14 +29,12 @@ RUN     touch /usr/local/etc/npmrc && \
           cp /usr/local/etc/npmrc /usr/local/node/etc/npmrc
 
 ENV     NODE_PATH /calypso/server:/calypso/client
-RUN     npm install -g lerna && ln -sf /usr/local/node/bin/lerna /usr/local/bin/
 
 # Install base npm packages to take advantage of the docker cache
-COPY    ./lerna.json /calypso/lerna.json
 COPY    ./package.json /calypso/package.json
 COPY    ./npm-shrinkwrap.json /calypso/npm-shrinkwrap.json
 # Sometimes "npm install" fails the first time when the cache is empty, so we retry once if it failed
-RUN     lerna bootstrap --hoist
+RUN     npm install --production || npm install --production
 
 COPY     . /calypso
 
