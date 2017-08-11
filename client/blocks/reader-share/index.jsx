@@ -97,6 +97,7 @@ class ReaderShare extends React.Component {
 
 	state = {
 		showingMenu: false,
+		hideSocialShare: false,
 	};
 
 	constructor( props ) {
@@ -174,6 +175,14 @@ class ReaderShare extends React.Component {
 		preloadSection( 'post-editor' );
 	}
 
+	onSearch = terms => {
+		if ( terms.length > 0 ) {
+			this.setState( { hideSocialShare: true } );
+		} else {
+			this.setState( { hideSocialShare: false } );
+		}
+	};
+
 	render() {
 		const { translate } = this.props;
 		const buttonClasses = classnames( {
@@ -208,22 +217,24 @@ class ReaderShare extends React.Component {
 						className="popover reader-share__popover"
 						popoverTitle={ translate( 'Share on' ) }
 					>
-						<PopoverMenuItem
-							action="facebook"
-							className="reader-share__popover-item"
-							title={ translate( 'Share on Facebook' ) }
-						>
-							<SocialLogo icon="facebook" />
-							<span>Facebook</span>
-						</PopoverMenuItem>
-						<PopoverMenuItem
-							action="twitter"
-							className="reader-share__popover-item"
-							title={ translate( 'Share on Twitter' ) }
-						>
-							<SocialLogo icon="twitter" />
-							<span>Twitter</span>
-						</PopoverMenuItem>
+						{ ! this.state.hideSocialShare &&
+							<PopoverMenuItem
+								action="facebook"
+								className="reader-share__popover-item"
+								title={ translate( 'Share on Facebook' ) }
+							>
+								<SocialLogo icon="facebook" />
+								<span>Facebook</span>
+							</PopoverMenuItem> }
+						{ ! this.state.hideSocialShare &&
+							<PopoverMenuItem
+								action="twitter"
+								className="reader-share__popover-item"
+								title={ translate( 'Share on Twitter' ) }
+							>
+								<SocialLogo icon="twitter" />
+								<span>Twitter</span>
+							</PopoverMenuItem> }
 						<SiteSelector
 							className="reader-share__site-selector"
 							siteBasePath="/post"
@@ -233,6 +244,7 @@ class ReaderShare extends React.Component {
 							autoFocus={ ! hasTouch() }
 							groups={ true }
 							onClose={ this.closeMenu }
+							onSearch={ this.onSearch }
 						/>
 					</ReaderPopoverMenu>,
 			]

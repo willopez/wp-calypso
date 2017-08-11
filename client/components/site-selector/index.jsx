@@ -58,6 +58,7 @@ class SiteSelector extends Component {
 		visibleSites: PropTypes.arrayOf( PropTypes.object ),
 		allSitesPath: PropTypes.string,
 		navigateToSite: PropTypes.func.isRequired,
+		onSearch: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -71,6 +72,7 @@ class SiteSelector extends Component {
 		onClose: noop,
 		onSiteSelect: noop,
 		groups: false,
+		onSearch: noop,
 	};
 
 	state = {
@@ -89,7 +91,7 @@ class SiteSelector extends Component {
 
 	onSearch = terms => {
 		this.props.searchSites( terms );
-
+		this.props.onSearch( terms );
 		this.setState( {
 			highlightedIndex: terms ? 0 : -1,
 			showSearch: terms ? true : this.state.showSearch,
