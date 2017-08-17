@@ -1,7 +1,14 @@
+/** @format **/
+
 /**
  * External dependencies
  */
 import { get, noop } from 'lodash';
+
+/**
+ * Internal dependencies
+ */
+import deterministicStringify from 'lib/deterministic-stringify';
 
 /**
  * Returns response data from an HTTP request success action if available
@@ -42,11 +49,96 @@ export const getHeaders = action => get( action, 'meta.dataLayer.headers', null 
  */
 export const getProgress = action => get( action, 'meta.dataLayer.progress', null );
 
+const getRequestStatus = action => {
+	if ( getError( action ) ) {
+		return 'failure';
+	}
+
+	if ( getData( action ) ) {
+		return 'success';
+	}
+
+	return 'pending';
+};
+
+export const getActionKey = fullAction => {
+	const { meta, ...action } = fullAction; // eslint-disable-line no-unused-vars
+
+	return deterministicStringify( action );
+};
+
+/**
+ * Tracks the state of network activity for a given request type
+ *
+ * When we issue _REQUEST type actions they usually create some
+ * associated network activity by means of an HTTP request.
+ * We may want to know what the status of those requests are, if
+ * they have completed or if they have failed.
+ *
+ * This tracker stores the meta data for those requests which
+ * can then be independently polled by React components which
+ * need to know about those data requests.
+ *
+ * Note that this is meta data about remote data requests and
+ * _not_ about network activity, which is why this is code is
+ * here operating on the _REQUEST actions and not in the HTTP
+ * pipeline as a processor on HTTP_REQUEST actions.
+ *
+ * @param {Map} requests stores request meta data; must be Map-like with set/get
+ * @returns {Function} middleware function to track requests
+ */
+export const trackRequests = requests => next => ( store, action ) => {
+	// progress events don't affect
+	// any tracking meta at the moment
+	if ( getProgress( action ) ) {
+		return next( store, action );
+	}
+
+	const actionKey = getActionKey( action );
+	const status = getRequestStatus( action );
+
+	requests.set(
+		actionKey,
+		Object.assign(
+			{},
+			requests.get( actionKey ),
+			{ status },
+			status !== 'pending' && { lastUpdated: Date.now() }
+		)
+	);
+
+	next( store, action );
+};
+
+/** @type Map stores meta data about data request **/
+const requestsMeta = new Map();
+
+/**
+ * Builds a function to return request meta (used for testing)
+ *
+ * @see getRequestMeta
+ *
+ * @param {Map} requests stores request meta data; must be Map-like with set/get
+ * @returns {Function} actually gets request meta given an action
+ */
+export const requestMetaGetter = requests => action => requests.get( getActionKey( action ) );
+
+/**
+ * Returns known information about a given data request
+ *
+ * @type {Function}
+ * @param {Object} action data _REQUEST Redux action
+ * @returns {Object} meta information about a data request
+ */
+export const getRequestMeta = requestMetaGetter( requestsMeta );
+
 /**
  * @type Object default dispatchRequest options
+ * @property {Function} middleware chain of functions to process before dispatch
  * @property {Function} onProgress called on progress events
  */
 const defaultOptions = {
+	middleware: trackRequests( requestsMeta ),
 	onProgress: noop,
 };
 
@@ -78,13 +170,22 @@ const defaultOptions = {
  * @param {Function} onSuccess called if the action meta includes response data
  * @param {Function} onError called if the action meta includes error data
  * @param {Object} options configures additional dispatching behaviors
- + @param {Function} [options.middleware] runs before the dispatch itself
- + @param {Function} [options.onProgress] called on progress events when uploading
+ * @param {Function} [options.middleware] runs before the dispatch itself
+ * @param {Function} [options.onProgress] called on progress events when uploading
  * @returns {?*} please ignore return values, they are undefined
  */
 export const dispatchRequest = ( initiator, onSuccess, onError, options ) => ( store, action ) => {
-	const { onProgress } = Object.assign( defaultOptions, options );
+	const { middleware, onProgress } = Object.assign( defaultOptions, options );
 
+	// this is an odd way of injecting middleware
+	// normally we'd wrap the entire function from
+	// the outside and use dependency injection
+	// for providing the middleware
+	// in this case we want to preserve the function
+	// signature of `dispatchRequest` while allowing
+	// for testing without middleware so we're just
+	// going to go inside-out here
+	return middleware( ( store, action ) => {
 	const error = getError( action );
 	if ( error ) {
 		return onError( store, action, error );
@@ -96,9 +197,10 @@ export const dispatchRequest = ( initiator, onSuccess, onError, options ) => ( s
 	}
 
 	const progress = getProgress( action );
-	if ( progress ) {
+		if ( progress ) {
 		return onProgress( store, action, progress );
 	}
 
 	return initiator( store, action );
+	} );
 };
