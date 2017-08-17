@@ -3,11 +3,12 @@
 /**
  * External dependencies
  */
-import { get, noop } from 'lodash';
+import { get, merge, noop, uniqueId } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import config from 'config';
 import deterministicStringify from 'lib/deterministic-stringify';
 
 /**
@@ -85,9 +86,10 @@ export const getActionKey = fullAction => {
  * pipeline as a processor on HTTP_REQUEST actions.
  *
  * @param {Map} requests stores request meta data; must be Map-like with set/get
+ * @param {Map} requestIds tracks requests by unique ids
  * @returns {Function} middleware function to track requests
  */
-export const trackRequests = requests => next => ( store, action ) => {
+export const trackRequests = ( requests, requestIds ) => next => ( store, action ) => {
 	// progress events don't affect
 	// any tracking meta at the moment
 	if ( getProgress( action ) ) {
@@ -96,25 +98,46 @@ export const trackRequests = requests => next => ( store, action ) => {
 
 	const actionKey = getActionKey( action );
 	const status = getRequestStatus( action );
+	const meta = requests.get( actionKey ) || {};
+	const requestId = get( action, 'meta.dataLayer.requestId' ) || uniqueId( 'data-request-' );
 
-	requests.set(
-		actionKey,
-		Object.assign(
-			{},
-			requests.get( actionKey ),
-			{ status },
-			status !== 'pending' && { lastUpdated: Date.now() }
-		)
+	const nextMeta = Object.assign(
+		{},
+		meta,
+		{
+			requestId,
+			status,
+		},
+		status !== 'pending' && { lastUpdated: Date.now() }
 	);
 
-	next( store, action );
+	// update the meta
+	requests.set( actionKey, nextMeta );
+
+	// update the request mapping
+	// the returning action could be
+	// different than the first one
+	// which originated the request
+	if ( 'pending' === status ) {
+		requestIds.set( requestId, actionKey );
+	} else {
+		const firstKey = requestIds.get( requestId );
+
+		if ( firstKey && firstKey !== actionKey ) {
+			requests.set( firstKey, nextMeta );
+		}
+	}
+
+	next( store, merge( action, { meta: { dataLayer: { requestId } } } ) );
 };
 
 /** @type Map stores meta data about data request **/
 const requestsMeta = new Map();
+const requestsIds = new Map();
 
-if ( 'development' === process.env.NODE_ENV && typeof window === 'object' ) {
+if ( 'development' === config( 'env_id' ) && typeof window === 'object' ) {
 	window.dataRequests = requestsMeta;
+	window.dataRequestIds = requestsIds;
 }
 
 /**
@@ -142,7 +165,7 @@ export const getRequestMeta = requestMetaGetter( requestsMeta );
  * @property {Function} onProgress called on progress events
  */
 const defaultOptions = {
-	middleware: trackRequests( requestsMeta ),
+	middleware: trackRequests( requestsMeta, requestsIds ),
 	onProgress: noop,
 };
 
@@ -190,21 +213,21 @@ export const dispatchRequest = ( initiator, onSuccess, onError, options ) => {
 	// for testing without middleware so we're just
 	// going to go inside-out here
 	return middleware( ( store, action ) => {
-	const error = getError( action );
-	if ( error ) {
-		return onError( store, action, error );
-	}
+		const error = getError( action );
+		if ( error ) {
+			return onError( store, action, error );
+		}
 
-	const data = getData( action );
-	if ( data ) {
-		return onSuccess( store, action, data );
-	}
+		const data = getData( action );
+		if ( data ) {
+			return onSuccess( store, action, data );
+		}
 
-	const progress = getProgress( action );
+		const progress = getProgress( action );
 		if ( progress ) {
-		return onProgress( store, action, progress );
-	}
+			return onProgress( store, action, progress );
+		}
 
-	return initiator( store, action );
+		return initiator( store, action );
 	} );
 };
