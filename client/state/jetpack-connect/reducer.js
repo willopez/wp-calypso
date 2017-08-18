@@ -192,6 +192,10 @@ export function jetpackConnectAuthorize( state = {}, action ) {
 				{},
 				buildDefaultAuthorizeState(),
 				{ queryObject: queryObject },
+				{
+					autoAuthorize: ( 'woocommerce-services-auto-authorize' === get( queryObject, 'from' ) ) ||
+						state.autoAuthorize
+				}
 			);
 		case JETPACK_CONNECT_CREATE_ACCOUNT:
 			return Object.assign(
