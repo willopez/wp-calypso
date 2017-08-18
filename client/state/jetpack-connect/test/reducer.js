@@ -633,6 +633,65 @@ describe( 'reducer', () => {
 
 			expect( state ).to.be.eql( {} );
 		} );
+
+		describe( 'should auto-authorize Woo users', () => {
+			it( 'even when autoAuthorize is not set', () => {
+				const state = jetpackConnectAuthorize( undefined, {
+					type: JETPACK_CONNECT_QUERY_SET,
+					queryObject: {
+						from: 'woocommerce-services-auto-authorize',
+					}
+				} );
+				expect( state.autoAuthorize ).to.equal( true );
+			} );
+
+			it( 'when autoAuthorize is already set to true', () => {
+				const state = jetpackConnectAuthorize( {
+					autoAuthorize: true,
+				}, {
+					type: JETPACK_CONNECT_QUERY_SET,
+					queryObject: {
+						from: 'woocommerce-services-auto-authorize',
+					}
+				} );
+				expect( state.autoAuthorize ).to.equal( true );
+			} );
+		} );
+
+		describe( 'should not overwrite autoAuthorize for non-Woo users', () => {
+			it( 'when set to true', () => {
+				const state = jetpackConnectAuthorize( {
+					autoAuthorize: true,
+				}, {
+					type: JETPACK_CONNECT_QUERY_SET,
+					queryObject: {
+						from: 'not-woo',
+					}
+				} );
+				expect( state.autoAuthorize ).to.equal( true );
+			} );
+
+			it( 'when set to false', () => {
+				const state = jetpackConnectAuthorize( {
+					autoAuthorize: false,
+				}, {
+					type: JETPACK_CONNECT_QUERY_SET,
+					queryObject: {
+						from: 'not-woo',
+					}
+				} );
+				expect( state.autoAuthorize ).to.equal( false );
+			} );
+			it( 'when not set', () => {
+				const state = jetpackConnectAuthorize( undefined, {
+					type: JETPACK_CONNECT_QUERY_SET,
+					queryObject: {
+						from: 'not-woo',
+					}
+				} );
+				expect( state.autoAuthorize ).to.equal( undefined );
+			} );
+		} );
 	} );
 
 	describe( '#jetpackSSO()', () => {
