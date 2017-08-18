@@ -45,6 +45,11 @@ const shouldFormat = text => {
 	return firstDocBlockText.indexOf( '@format' ) >= 0;
 };
 
+// may be adding prettier files manually, stash to ensure only staged changes are committed
+const isDirty = execSync( 'git diff --shortstat' ).length;
+if ( isDirty ) {
+	execSync( 'git stash save --keep-index --include-untracked "Stash changes before prettier"' );
+}
 // run prettier for any files in the commit that have @format within their first docblock
 files.map( file => path.join( __dirname, '../', file ) ).forEach( file => {
 	fs.readFile( file, 'utf8', ( err, text ) => {
@@ -52,10 +57,13 @@ files.map( file => path.join( __dirname, '../', file ) ).forEach( file => {
 			console.log( `Prettier formatting file: ${ file } because it contains the @format flag` );
 			const formattedText = prettier.format( text, {} );
 			fs.writeFileSync( file, formattedText );
-			execSync( `git add ${ file }` );
+			execSync( `git add "${ file }"` );
 		}
 	} );
 } );
+if ( isDirty ) {
+	execSync( 'git stash pop' );
+}
 
 // linting should happen after formatting
 const lintResult = spawnSync( 'eslint-eslines', [ ...files, '--', '--diff=index' ], {
