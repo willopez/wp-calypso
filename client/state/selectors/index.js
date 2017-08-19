@@ -147,6 +147,7 @@ export getWhois from './get-whois';
 export hasBrokenSiteUserConnection from './has-broken-site-user-connection';
 export hasInitializedSites from './has-initialized-sites';
 export hasJetpackSites from './has-jetpack-sites';
+export hasLoadedSites from './has-loaded-sites';
 export hasUnsavedUserSettings from './has-unsaved-user-settings';
 export hasUserAskedADirectlyQuestion from './has-user-asked-a-directly-question';
 export hasUserSettings from './has-user-settings';
