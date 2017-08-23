@@ -4,6 +4,7 @@
 import { assign, forEach } from 'lodash';
 const ReactDom = require( 'react-dom' ),
 	React = require( 'react' ),
+	PropTypes = require( 'prop-types' ),
 	classnames = require( 'classnames' ),
 	autosize = require( 'autosize' ),
 	tinymce = require( 'tinymce/tinymce' );
@@ -161,29 +162,29 @@ module.exports = React.createClass( {
 	displayName: 'TinyMCE',
 
 	propTypes: {
-		mode: React.PropTypes.string,
-		onActivate: React.PropTypes.func,
-		onBlur: React.PropTypes.func,
-		onChange: React.PropTypes.func,
-		onDeactivate: React.PropTypes.func,
-		onFocus: React.PropTypes.func,
-		onHide: React.PropTypes.func,
-		onInit: React.PropTypes.func,
-		onRedo: React.PropTypes.func,
-		onRemove: React.PropTypes.func,
-		onReset: React.PropTypes.func,
-		onShow: React.PropTypes.func,
-		onSubmit: React.PropTypes.func,
-		onUndo: React.PropTypes.func,
-		onSetContent: React.PropTypes.func,
-		tabIndex: React.PropTypes.number,
-		isNew: React.PropTypes.bool,
-		onTextEditorChange: React.PropTypes.func,
-		onKeyUp: React.PropTypes.func
+		mode: PropTypes.string,
+		onActivate: PropTypes.func,
+		onBlur: PropTypes.func,
+		onChange: PropTypes.func,
+		onDeactivate: PropTypes.func,
+		onFocus: PropTypes.func,
+		onHide: PropTypes.func,
+		onInit: PropTypes.func,
+		onRedo: PropTypes.func,
+		onRemove: PropTypes.func,
+		onReset: PropTypes.func,
+		onShow: PropTypes.func,
+		onSubmit: PropTypes.func,
+		onUndo: PropTypes.func,
+		onSetContent: PropTypes.func,
+		tabIndex: PropTypes.number,
+		isNew: PropTypes.bool,
+		onTextEditorChange: PropTypes.func,
+		onKeyUp: PropTypes.func
 	},
 
 	contextTypes: {
-		store: React.PropTypes.object
+		store: PropTypes.object
 	},
 
 	getDefaultProps: function() {
@@ -520,7 +521,7 @@ module.exports = React.createClass( {
 		} );
 
 		/*
-		 * Using `classnames()` here is just n hack to avoid the linter complaining that the
+		 * Using `classnames()` here is just a hack to avoid the linter complaining that the
 		 * container is named `tinymce-container` instead of `tinymce`. Ideally the containing
 		 * `div` and the `textarea` should be refactored so that the `div` has the `tinymce`
 		 * class, but that would interfere with higher priority fixes. This component is slated
