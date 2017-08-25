@@ -3,13 +3,13 @@
 /**
  * External dependencies
  */
+import deterministicStringify from 'json-stable-stringify';
 import { get, merge, noop, uniqueId } from 'lodash';
 
 /**
  * Internal dependencies
  */
 import config from 'config';
-import deterministicStringify from 'lib/deterministic-stringify';
 
 /**
  * Returns response data from an HTTP request success action if available
