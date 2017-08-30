@@ -78,7 +78,7 @@ class JetpackConnectSiteUrlInput extends Component {
 		return (
 			<p className="jetpack-connect__tos-link">{
 				this.props.translate(
-					'By clicking [Connect Now], you agree to our fascinating {{tosLinkText}}Terms of Service{{/tosLinkText}} and to sync {{syncLinkText}}certain data and settings{{/syncLinkText}} to WordPress.com',
+					'By connecting you agree to our fascinating {{tosLinkText}}Terms of Service{{/tosLinkText}} and to sync {{syncLinkText}}certain data and settings{{/syncLinkText}} to WordPress.com',
 					{
 						components: {
 							tosLinkText: <a
