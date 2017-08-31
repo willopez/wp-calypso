@@ -164,7 +164,7 @@ class SiteTools extends Component {
 	checkForSubscriptions = ( event ) => {
 		trackDeleteSiteOption( 'delete-site' );
 
-		if ( ! some( this.props.sitePurchases, 'active' ) ) {
+		if ( this.props.isAtomic || ! some( this.props.sitePurchases, 'active' ) ) {
 			return true;
 		}
 
@@ -194,6 +194,7 @@ export default connect(
 		}
 
 		return {
+			isAtomic,
 			siteSlug,
 			sitePurchases: getSitePurchases( state, siteId ),
 			purchasesError: getPurchasesError( state ),
@@ -202,7 +203,7 @@ export default connect(
 			showChangeAddress: ! isJetpack && ! isVip,
 			showThemeSetup: config.isEnabled( 'settings/theme-setup' ) && ! isJetpack && ! isVip,
 			showDeleteContent: ! isJetpack && ! isVip,
-			showDeleteSite: ! isJetpack && ! isVip && sitePurchasesLoaded,
+			showDeleteSite: ( ! isJetpack || isAtomic ) && ! isVip && sitePurchasesLoaded,
 			showManageConnection: isJetpack && ! isAtomic,
 		};
 	}

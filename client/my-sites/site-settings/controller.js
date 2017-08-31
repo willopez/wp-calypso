@@ -18,7 +18,7 @@ import ThemeSetup from './theme-setup';
 import ManageConnection from './manage-connection';
 import { getSelectedSite, getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
 import { isJetpackSite } from 'state/sites/selectors';
-import { canCurrentUser, isVipSite } from 'state/selectors';
+import { canCurrentUser, isSiteAutomatedTransfer, isVipSite } from 'state/selectors';
 import { SITES_ONCE_CHANGED } from 'state/action-types';
 
 function canDeleteSite( state, siteId ) {
@@ -29,8 +29,8 @@ function canDeleteSite( state, siteId ) {
 		return false;
 	}
 
-	if ( isJetpackSite( state, siteId ) ) {
-		// Current user can't delete a jetpack site
+	if ( isJetpackSite( state, siteId ) && ! isSiteAutomatedTransfer( state, siteId ) ) {
+		// Current user can't delete a Jetpack site, but can request to delete an Atomic site
 		return false;
 	}
 
