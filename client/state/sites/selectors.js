@@ -33,7 +33,7 @@ import { fromApi as seoTitleFromApi } from 'components/seo/meta-title-editor/map
 import versionCompare from 'lib/version-compare';
 import getComputedAttributes from 'lib/site/computed-attributes';
 import { getCustomizerFocus } from 'my-sites/customize/panels';
-import { isSiteUpgradeable } from 'state/selectors';
+import { isSiteUpgradeable, getSitesItems } from 'state/selectors';
 
 /**
  * Returns a raw site object by its ID.
@@ -55,7 +55,7 @@ export const getRawSite = ( state, siteId ) => {
  */
 export const getSiteBySlug = createSelector(
 	( state, siteSlug ) => (
-		find( state.sites.items || {}, ( item, siteId ) => (
+		find( getSitesItems( state ), ( item, siteId ) => (
 			// find always passes the siteId as a string. We need it as a integer
 			getSiteSlug( state, parseInt( siteId, 10 ) ) === siteSlug
 		) ) || null
@@ -120,9 +120,9 @@ export function getJetpackComputedAttributes( state, siteId ) {
  */
 export const getSiteCollisions = createSelector(
 	( state ) => {
-		return map( filter( state.sites.items || {}, ( wpcomSite ) => {
+		return map( filter( getSitesItems( state ), ( wpcomSite ) => {
 			const wpcomSiteUrlSansProtocol = withoutHttp( wpcomSite.URL );
-			return ! wpcomSite.jetpack && some( state.sites.items || {}, ( jetpackSite ) => {
+			return ! wpcomSite.jetpack && some( getSitesItems( state ), ( jetpackSite ) => {
 				return (
 					jetpackSite.jetpack &&
 					wpcomSiteUrlSansProtocol === withoutHttp( jetpackSite.URL )

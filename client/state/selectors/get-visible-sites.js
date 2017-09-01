@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import { getSite } from 'state/sites/selectors';
+import { getSitesItems } from 'state/selectors';
 
 /**
  * Get all visible sites
@@ -10,7 +11,7 @@ import { getSite } from 'state/sites/selectors';
  * @return {Array}        Sites objects
  */
 export default function getVisibleSites( state ) {
-	return Object.values( state.sites.items || {} )
+	return Object.values( getSitesItems( state ) )
 		.filter( site => site.visible === true )
 		.map( site => getSite( state, site.ID ) );
 }

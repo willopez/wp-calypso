@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import createSelector from 'lib/create-selector';
+import { getSitesItems } from 'state/selectors';
 import { isSingleUserSite } from 'state/sites/selectors';
 
 /**
@@ -11,6 +12,6 @@ import { isSingleUserSite } from 'state/sites/selectors';
  * @return {Boolean}       True if all sites are single user sites
  */
 export default createSelector( ( state ) => {
-	const siteIds = Object.keys( state.sites.items || {} );
+	const siteIds = Object.keys( getSitesItems( state ) );
 	return !! siteIds.length && siteIds.every( ( siteId ) => isSingleUserSite( state, siteId ) );
 }, ( state ) => ( state.sites.items ) );
