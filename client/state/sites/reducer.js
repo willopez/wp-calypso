@@ -106,19 +106,9 @@ export function items( state = null, action ) {
 				return memo;
 			}, initialNextState );
 
-		case SITE_DELETE_RECEIVE: {
-			if ( state === null ) {
-				return state;
-			}
-			return omit( state, action.siteId );
-		}
-
-		case JETPACK_DISCONNECT_RECEIVE: {
-			if ( state === null ) {
-				return state;
-			}
-			return omit( state, action.siteId );
-		}
+		case SITE_DELETE_RECEIVE:
+		case JETPACK_DISCONNECT_RECEIVE:
+			return state !== null ? omit( state, action.siteId ) : state;
 
 		case THEME_ACTIVATE_SUCCESS: {
 			if ( state === null ) {
