@@ -55,12 +55,12 @@ export default {
 
 	'design-type': {
 		stepName: 'design-type',
-		providesDependencies: [ 'designType' ]
+		providesDependencies: [ 'designType', 'themeSlugWithRepo' ]
 	},
 
 	'design-type-with-store': {
 		stepName: 'design-type-with-store',
-		providesDependencies: [ 'designType' ]
+		providesDependencies: [ 'designType', 'themeSlugWithRepo' ]
 	},
 
 	site: {
@@ -145,6 +145,16 @@ export default {
 			subHeaderText: i18n.translate( 'You\'re moments away from connecting Jetpack.' )
 		},
 		providesDependencies: [ 'bearer_token', 'username' ]
+	},
+
+	'oauth2-user': {
+		stepName: 'oauth2-user',
+		apiRequestFunction: stepActions.createAccount,
+		props: {
+			oauth2Signup: true
+		},
+		providesToken: true,
+		providesDependencies: [ 'bearer_token', 'username', 'oauth2_client_id', 'oauth2_redirect' ]
 	},
 
 	'get-dot-blog-plans': {

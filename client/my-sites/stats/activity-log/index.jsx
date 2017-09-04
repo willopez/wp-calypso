@@ -8,7 +8,7 @@ import debugFactory from 'debug';
 import scrollTo from 'lib/scroll-to';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
-import { get, groupBy, includes, isEmpty, isNull, map } from 'lodash';
+import { get, groupBy, includes, isEmpty, isNull } from 'lodash';
 
 /**
  * Internal dependencies
@@ -21,7 +21,6 @@ import ActivityLogRewindToggle from './activity-log-rewind-toggle';
 import DatePicker from 'my-sites/stats/stats-date-picker';
 import EmptyContent from 'components/empty-content';
 import ErrorBanner from '../activity-log-banner/error-banner';
-import ListEnd from 'components/list-end';
 import Main from 'components/main';
 import ProgressBanner from '../activity-log-banner/progress-banner';
 import QueryActivityLog from 'components/data/query-activity-log';
@@ -32,6 +31,7 @@ import StatsFirstView from '../stats-first-view';
 import StatsNavigation from '../stats-navigation';
 import StatsPeriodNavigation from 'my-sites/stats/stats-period-navigation';
 import SuccessBanner from '../activity-log-banner/success-banner';
+import JetpackColophon from 'components/jetpack-colophon';
 import { adjustMoment } from './utils';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getSiteSlug, getSiteTitle } from 'state/sites/selectors';
@@ -93,6 +93,24 @@ class ActivityLog extends Component {
 
 	componentDidMount() {
 		window.scrollTo( 0, 0 );
+	}
+
+	getStartMoment() {
+		const { gmtOffset, moment, startDate, timezone } = this.props;
+
+		if ( timezone ) {
+			if ( ! startDate ) {
+				return moment().tz( timezone );
+			}
+
+			return moment.tz( startDate, timezone );
+		}
+
+		if ( null !== gmtOffset ) {
+			return moment.utc( startDate ).subtract( gmtOffset, 'hours' ).utcOffset( gmtOffset );
+		}
+
+		return moment.utc( startDate );
 	}
 
 	handlePeriodChange = ( { date, direction } ) => {
@@ -232,7 +250,8 @@ class ActivityLog extends Component {
 	}
 
 	renderLogs() {
-		const { isPressable, isRewindActive, logs, moment, translate, siteId, startDate } = this.props;
+		const { isPressable, isRewindActive, logs, moment, translate, siteId } = this.props;
+		const startMoment = this.getStartMoment();
 
 		if ( isNull( logs ) ) {
 			return (
@@ -250,43 +269,53 @@ class ActivityLog extends Component {
 			return (
 				<EmptyContent
 					title={ translate( 'No activity for %s', {
-						args: moment.utc( startDate ).format( 'MMMM YYYY' ),
+						args: startMoment.format( 'MMMM YYYY' ),
 					} ) }
 				/>
 			);
 		}
 
-		const logsGroupedByDay = map(
-			groupBy( logs, log =>
-				this.applySiteOffset( moment.utc( log.ts_utc ) ).endOf( 'day' ).valueOf()
-			),
-			( daily_logs, tsEndOfSiteDay ) =>
+		const logsGroupedByDay = groupBy( logs, log =>
+			this.applySiteOffset( moment.utc( log.activityTs ) ).endOf( 'day' ).valueOf()
+		);
+		const activityDays = [];
+
+		// loop backwards through each day in the month
+		for (
+			const m = moment.min(
+					startMoment.clone().endOf( 'month' ).startOf( 'day' ),
+					this.applySiteOffset( moment.utc() ).startOf( 'day' )
+				),
+				startOfMonth = startMoment.clone().startOf( 'month' ).valueOf();
+			startOfMonth <= m.valueOf();
+			m.subtract( 1, 'day' )
+		) {
+			const dayEnd = m.endOf( 'day' ).valueOf();
+			activityDays.push(
 				<ActivityLogDay
 					applySiteOffset={ this.applySiteOffset }
 					disableRestore={ disableRestore }
 					hideRestore={ ! isPressable }
 					isRewindActive={ isRewindActive }
-					key={ tsEndOfSiteDay }
-					logs={ daily_logs }
+					key={ dayEnd }
+					logs={ get( logsGroupedByDay, dayEnd, [] ) }
 					requestRestore={ this.handleRequestRestore }
 					siteId={ siteId }
-					tsEndOfSiteDay={ +tsEndOfSiteDay }
+					tsEndOfSiteDay={ dayEnd }
 				/>
-		);
+			);
+		}
 
-		// FIXME: Prefer not to return an array. Fix when background line issue is fixed:
-		// https://github.com/Automattic/wp-calypso/issues/17065
-		return [
-			<section className="activity-log__wrapper" key="logs">
-				{ logsGroupedByDay }
-			</section>,
-			<ListEnd key="end-marker" />,
-		];
+		return (
+			<section className="activity-log__wrapper">
+				{ activityDays }
+			</section>
+		);
 	}
 
 	renderMonthNavigation( position ) {
-		const { moment, slug, startDate } = this.props;
-		const startOfMonth = moment.utc( startDate ).startOf( 'month' );
+		const { slug } = this.props;
+		const startOfMonth = this.getStartMoment().startOf( 'month' );
 		const query = {
 			period: 'month',
 			date: startOfMonth.format( 'YYYY-MM-DD' ),
@@ -306,11 +335,12 @@ class ActivityLog extends Component {
 	}
 
 	render() {
-		const { isPressable, isRewindActive, moment, siteId, siteTitle, slug, startDate } = this.props;
+		const { isPressable, isRewindActive, siteId, siteTitle, slug } = this.props;
+		const startMoment = this.getStartMoment();
 		const { requestedRestoreTimestamp, showRestoreConfirmDialog } = this.state;
 
-		const queryStart = this.applySiteOffset( moment.utc( startDate ) ).startOf( 'month' ).valueOf();
-		const queryEnd = this.applySiteOffset( moment.utc( startDate ) ).endOf( 'month' ).valueOf();
+		const queryStart = startMoment.startOf( 'month' ).valueOf();
+		const queryEnd = startMoment.endOf( 'month' ).valueOf();
 
 		return (
 			<Main wideLayout>
@@ -340,6 +370,7 @@ class ActivityLog extends Component {
 					onClose={ this.handleRestoreDialogClose }
 					onConfirm={ this.handleRestoreDialogConfirm }
 				/>
+				<JetpackColophon />
 			</Main>
 		);
 	}
