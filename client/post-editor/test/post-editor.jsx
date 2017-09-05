@@ -1,6 +1,7 @@
 /**
  * External dependencies
  */
+import { shallow } from 'enzyme';
 import React from 'react';
 import mockery from 'mockery';
 import { expect } from 'chai';
@@ -19,7 +20,8 @@ describe( 'PostEditor', function() {
 		translate: string => string,
 		markSaved: () => {},
 		markChanged: () => {},
-		setLayoutFocus: () => {}
+		setLayoutFocus: () => {},
+		preferences: {},
 	};
 
 	useFakeDom();
@@ -86,10 +88,7 @@ describe( 'PostEditor', function() {
 	describe( 'onEditedPostChange', function() {
 		it( 'should clear content when store state transitions to isNew()', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const stub = sandbox.stub( PostEditStore, 'isNew' );
@@ -102,10 +101,7 @@ describe( 'PostEditor', function() {
 
 		it( 'should not clear content when store state already isNew()', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const stub = sandbox.stub( PostEditStore, 'isNew' );
@@ -118,10 +114,7 @@ describe( 'PostEditor', function() {
 
 		it( 'should clear content when loading', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const stub = sandbox.stub( PostEditStore, 'isLoading' );
@@ -133,10 +126,7 @@ describe( 'PostEditor', function() {
 
 		it( 'should set content after load', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const content = 'loaded post';
@@ -152,10 +142,7 @@ describe( 'PostEditor', function() {
 
 		it( 'a normal content change should not clear content', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const content = 'new content';
@@ -172,10 +159,7 @@ describe( 'PostEditor', function() {
 
 		it( 'is a copy and it should set the copied content', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const content = 'copied content';
@@ -195,10 +179,7 @@ describe( 'PostEditor', function() {
 
 		it( 'should not set the copied content more than once', function() {
 			const tree = TestUtils.renderIntoDocument(
-				<PostEditor
-					preferences={ {} }
-					{ ...defaultProps }
-				/>
+				<PostEditor { ...defaultProps } />
 			);
 
 			const content = 'copied content';
@@ -214,6 +195,30 @@ describe( 'PostEditor', function() {
 			tree.onEditedPostChange();
 
 			expect( tree.editor.setEditorContent ).to.not.have.been.called;
+		} );
+	} );
+
+	describe( '#onEditorContentChange()', () => {
+		it( 'triggers a pending raw content and autosave, canceled on save', () => {
+			const wrapper = shallow( <PostEditor { ...defaultProps } /> );
+
+			wrapper.instance().debouncedAutosave = sandbox.stub();
+			wrapper.instance().debouncedAutosave.cancel = sandbox.stub();
+			wrapper.instance().throttledAutosave = sandbox.stub();
+			wrapper.instance().throttledAutosave.cancel = sandbox.stub();
+			wrapper.instance().debouncedSaveRawContent = sandbox.stub();
+			wrapper.instance().debouncedSaveRawContent.cancel = sandbox.stub();
+
+			wrapper.instance().onEditorContentChange();
+
+			expect( wrapper.instance().debouncedAutosave ).to.have.been.called;
+			expect( wrapper.instance().debouncedSaveRawContent ).to.have.been.called;
+
+			wrapper.setState( { isSaving: true } );
+
+			expect( wrapper.instance().debouncedAutosave.cancel ).to.have.been.called;
+			expect( wrapper.instance().throttledAutosave.cancel ).to.have.been.called;
+			expect( wrapper.instance().debouncedSaveRawContent.cancel ).to.have.been.called;
 		} );
 	} );
 } );

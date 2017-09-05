@@ -151,9 +151,17 @@ export const PostEditor = React.createClass( {
 	},
 
 	componentWillUpdate( nextProps, nextState ) {
-		const { isNew, savedPost } = nextState;
+		const { isNew, savedPost, isSaving } = nextState;
 		if ( ! isNew && savedPost && savedPost !== this.state.savedPost ) {
 			nextProps.receivePost( savedPost );
+		}
+
+		// Cancel pending changes or autosave when user initiates a save. These
+		// will have been reflected in the save payload.
+		if ( isSaving && ! this.state.isSaving ) {
+			this.debouncedAutosave.cancel();
+			this.throttledAutosave.cancel();
+			this.debouncedSaveRawContent.cancel();
 		}
 
 		if ( nextState.isDirty || nextProps.dirty ) {
@@ -610,6 +618,9 @@ export const PostEditor = React.createClass( {
 	saveRawContent: function() {
 		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		actions.editRawContent( this.editor.getContent( { format: 'raw' } ) );
+
+		// If debounced save raw content was pending, consider it flushed
+		this.debouncedSaveRawContent.cancel();
 	},
 
 	autosave: function() {
@@ -647,6 +658,10 @@ export const PostEditor = React.createClass( {
 
 		// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 		actions.autosave( callback );
+
+		// If debounced / throttled autosave was pending, consider it flushed
+		this.throttledAutosave.cancel();
+		this.debouncedAutosave.cancel();
 	},
 
 	onClose: function() {
