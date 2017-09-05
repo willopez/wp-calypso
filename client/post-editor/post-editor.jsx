@@ -1067,6 +1067,7 @@ export const PostEditor = React.createClass( {
 		this._switchEditorTimeout = setTimeout( function() {
 			// TODO: REDUX - remove flux actions when whole post-editor is reduxified
 			actions.edit( { content: content } );
+			actions.resetRawContent();
 
 			if ( mode === 'html' ) {
 				// Set raw content directly to avoid race conditions
