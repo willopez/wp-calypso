@@ -26,9 +26,7 @@ import { connectSocialUser, disconnectSocialUser } from 'state/login/actions';
 import { isRequesting, getRequestError } from 'state/login/selectors';
 import GoogleIcon from 'components/social-icons/google';
 import GoogleLoginButton from 'components/social-buttons/google';
-import userFactory from 'lib/user';
-
-const user = userFactory();
+import { requestUser } from 'state/users/actions';
 
 class SocialLogin extends Component {
 	static displayName = 'SocialLogin';
@@ -49,7 +47,7 @@ class SocialLogin extends Component {
 	}
 
 	disconnectFromGoogle = () => {
-		this.props.disconnectSocialUser( 'google' ).then( () => user.fetch() );
+		this.props.disconnectSocialUser( 'google' ).then( () => this.props.requestUser() );
 	};
 
 	handleGoogleResponse = ( response ) => {
@@ -63,7 +61,7 @@ class SocialLogin extends Component {
 			id_token: response.Zi.id_token,
 		};
 
-		return this.props.connectSocialUser( socialInfo ).then( () => user.fetch() );
+		return this.props.connectSocialUser( socialInfo ).then( () => this.props.requestUser() );
 	};
 
 	renderContent() {
@@ -154,5 +152,6 @@ export default connect(
 	{
 		connectSocialUser,
 		disconnectSocialUser,
+		requestUser,
 	}
 )( localize( SocialLogin ) );
