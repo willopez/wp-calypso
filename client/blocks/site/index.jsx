@@ -101,7 +101,7 @@ const Site = React.createClass( {
 							? translate( 'View site %(domain)s', {
 									args: { domain: site.domain },
 								} )
-							: translate( 'Select site %(domain)s', {
+							: translate( 'Site %(domain)s', {
 									args: { domain: site.domain },
 								} )
 					}
@@ -113,7 +113,7 @@ const Site = React.createClass( {
 							? translate( 'View site %(domain)s', {
 									args: { domain: site.domain },
 								} )
-							: translate( 'Select site %(domain)s', {
+							: translate( 'Site %(domain)s', {
 									args: { domain: site.domain },
 								} )
 					}
