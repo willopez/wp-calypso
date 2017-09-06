@@ -111,6 +111,13 @@ export class CommentDetailEdit extends Component {
 					</p>
 				}
 
+				{ isAuthorRegistered &&
+						<p className="comment-detail__edit-jetpack-update-notice">
+							<Gridicon icon="notice-outline" />
+							{ translate( 'A registered user\'s name and URL cannot be edited.' ) }
+						</p>
+				}
+
 				<div className="comment-detail__edit-buttons">
 					<FormButton
 						compact
