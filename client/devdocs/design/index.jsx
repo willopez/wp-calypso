@@ -79,6 +79,7 @@ import ListEnd from 'components/list-end/docs/example';
 import Wizard from 'components/wizard/docs/example';
 import Suggestions from 'components/suggestions/docs/example';
 import HeaderButton from 'components/header-button/docs/example';
+import JetpackLogoExample from 'components/jetpack-logo/docs/example';
 
 let DesignAssets = React.createClass( {
 	displayName: 'DesignAssets',
@@ -152,6 +153,7 @@ let DesignAssets = React.createClass( {
 					<InfoPopover />
 					<Tooltip />
 					<InputChrono />
+					<JetpackLogoExample />
 					<LanguagePicker />
 					<ListEnd />
 					<Notices />
