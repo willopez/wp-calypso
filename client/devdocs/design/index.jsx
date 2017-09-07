@@ -80,6 +80,7 @@ import Wizard from 'components/wizard/docs/example';
 import Suggestions from 'components/suggestions/docs/example';
 import HeaderButton from 'components/header-button/docs/example';
 import JetpackLogoExample from 'components/jetpack-logo/docs/example';
+import JetpackColophonExample from 'components/jetpack-colophon/docs/example';
 
 let DesignAssets = React.createClass( {
 	displayName: 'DesignAssets',
@@ -153,6 +154,7 @@ let DesignAssets = React.createClass( {
 					<InfoPopover />
 					<Tooltip />
 					<InputChrono />
+					<JetpackColophonExample />
 					<JetpackLogoExample />
 					<LanguagePicker />
 					<ListEnd />
