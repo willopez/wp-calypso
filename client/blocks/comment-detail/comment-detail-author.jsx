@@ -30,6 +30,7 @@ export class CommentDetailAuthor extends Component {
 		authorUsername: PropTypes.string,
 		blockUser: PropTypes.func,
 		commentDate: PropTypes.string,
+		commentIsPing: PropTypes.bool,
 		commentStatus: PropTypes.string,
 		commentUrl: PropTypes.string,
 		showAuthorInfo: PropTypes.bool,
@@ -60,7 +61,7 @@ export class CommentDetailAuthor extends Component {
 	).format( 'll LT' );
 
 	authorMoreInfo() {
-		if ( ! this.props.showAuthorInfo ) {
+		if ( ! this.props.showAuthorInfo || this.props.commentIsPing ) {
 			return null;
 		}
 
@@ -136,6 +137,7 @@ export class CommentDetailAuthor extends Component {
 		const {
 			authorDisplayName,
 			authorUrl,
+			commentIsPing,
 			commentStatus,
 			commentUrl,
 			showAuthorInfo,
@@ -150,7 +152,13 @@ export class CommentDetailAuthor extends Component {
 		return (
 			<div className={ classes }>
 				<div className="comment-detail__author-preview">
-					<Gravatar user={ this.getAuthorObject() } />
+					<div className="comment-detail__author-avatar">
+						<Gravatar user={ this.getAuthorObject() } />
+						{ commentIsPing &&
+							// eslint-disable-next-line wpcalypso/jsx-gridicon-size
+							<Gridicon icon="link" size={ 16 } />
+						}
+					</div>
 					<div className="comment-detail__author-info">
 						<div className="comment-detail__author-info-element comment-detail__author-name">
 							<strong>
@@ -176,8 +184,7 @@ export class CommentDetailAuthor extends Component {
 							{ translate( 'Pending' ) }
 						</div>
 					}
-					{
-						showAuthorInfo &&
+					{ showAuthorInfo && ! commentIsPing &&
 						<a className="comment-detail__author-more-info-toggle" onClick={ this.toggleExpanded }>
 							<Gridicon icon="info-outline" />
 						</a>

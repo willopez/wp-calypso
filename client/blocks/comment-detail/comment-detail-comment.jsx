@@ -26,6 +26,7 @@ export class CommentDetailComment extends Component {
 		blockUser: PropTypes.func,
 		commentContent: PropTypes.string,
 		commentDate: PropTypes.string,
+		commentIsPing: PropTypes.bool,
 		commentStatus: PropTypes.string,
 		commentUrl: PropTypes.string,
 		siteId: PropTypes.number,
@@ -43,6 +44,7 @@ export class CommentDetailComment extends Component {
 			blockUser,
 			commentContent,
 			commentDate,
+			commentIsPing,
 			commentStatus,
 			commentUrl,
 			repliedToComment,
@@ -63,6 +65,7 @@ export class CommentDetailComment extends Component {
 						authorUsername={ authorUsername }
 						blockUser={ blockUser }
 						commentDate={ commentDate }
+						commentIsPing={ commentIsPing }
 						commentStatus={ commentStatus }
 						commentUrl={ commentUrl }
 						siteId={ siteId }
