@@ -26,7 +26,7 @@ export const byContinents = createReducer( {}, {
 	[ TIMEZONES_RECEIVE ]: ( state, actions ) => ( actions.byContinents )
 }, continentsSchema );
 
-export const isRequesting = ( state = false, { type } ) => (
+export const isRequesting = ( state, { type } ) => (
 	type === TIMEZONES_REQUEST
 );
 

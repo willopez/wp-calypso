@@ -26,7 +26,6 @@ export const http = ( {
 	url,
 	method,
 	headers,
-	queryParams,
 	body,
 	withCredentials,
 	onSuccess,
