@@ -359,7 +359,7 @@ export class CommentList extends Component {
 
 	render() {
 		const {
-			areCommentsTreeSupported,
+			isCommentsTreeSupported,
 			isLoading,
 			siteId,
 			siteFragment,
@@ -382,7 +382,7 @@ export class CommentList extends Component {
 
 		return (
 			<div className="comment-list">
-				{ ! areCommentsTreeSupported &&
+				{ ! isCommentsTreeSupported &&
 					<QuerySiteCommentsList
 						number={ 100 }
 						offset={ ( page - 1 ) * COMMENTS_PER_PAGE }
@@ -390,7 +390,7 @@ export class CommentList extends Component {
 						status={ status }
 					/>
 				}
-				{ areCommentsTreeSupported &&
+				{ isCommentsTreeSupported &&
 					<QuerySiteCommentsTree siteId={ siteId } status={ status } />
 				}
 
@@ -420,7 +420,7 @@ export class CommentList extends Component {
 							editComment={ this.editComment }
 							isBulkEdit={ isBulkEdit }
 							key={ `comment-${ siteId }-${ commentId }` }
-							refreshCommentData={ areCommentsTreeSupported && ! this.hasCommentJustMovedBackToCurrentStatus( commentId ) }
+							refreshCommentData={ isCommentsTreeSupported && ! this.hasCommentJustMovedBackToCurrentStatus( commentId ) }
 							replyComment={ this.replyComment }
 							setCommentStatus={ this.setCommentStatus }
 							siteId={ siteId }
@@ -458,7 +458,7 @@ const mapStateToProps = ( state, { siteId, status } ) => {
 	const comments = map( getSiteCommentsTree( state, siteId, status ), 'commentId' );
 	const isLoading = ! isCommentsTreeInitialized( state, siteId, status );
 	return {
-		areCommentsTreeSupported: ! isJetpackSite( state, siteId ) || isJetpackMinimumVersion( state, siteId, '5.3' ),
+		isCommentsTreeSupported: ! isJetpackSite( state, siteId ) || isJetpackMinimumVersion( state, siteId, '5.3' ),
 		comments,
 		isLoading,
 		siteId,
