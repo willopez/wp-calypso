@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import * as _ from 'lodash';
+const _ = require( 'lodash' );
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const DashboardPlugin = require( 'webpack-dashboard/plugin' );
 const fs = require( 'fs' );
@@ -17,7 +17,7 @@ const NameAllModulesPlugin = require( 'name-all-modules-plugin' );
  */
 const cacheIdentifier = require( './server/bundler/babel/babel-loader-cache-identifier' );
 const config = require( './server/config' ).default;
-import babelConfig from 'babel-config-es-modules';
+const babelConfig = require( 'babel-config-es-modules' );
 
 /**
  * Internal variables
@@ -52,15 +52,17 @@ function getAliasesForExtensions() {
 
 const babelLoader = {
 	loader: 'babel-loader',
-	options: {
-		cacheDirectory: path.join( __dirname, 'build', '.babel-client-cache' ),
-		cacheIdentifier: cacheIdentifier,
-		plugins: [ [
-			path.join( __dirname, 'server', 'bundler', 'babel', 'babel-plugin-transform-wpcalypso-async' ),
-			{ async: config.isEnabled( 'code-splitting' ) }
-		] ],
-		...babelConfig,
-	}
+	options: Object.assign( {},
+		{
+			cacheDirectory: path.join( __dirname, 'build', '.babel-client-cache' ),
+			cacheIdentifier: cacheIdentifier,
+			plugins: [ [
+				path.join( __dirname, 'server', 'bundler', 'babel', 'babel-plugin-transform-wpcalypso-async' ),
+				{ async: config.isEnabled( 'code-splitting' ) }
+			] ],
+		},
+		babelConfig
+	)
 };
 
 // happypack is not compatible with windows: https://github.com/amireh/happypack/blob/caaed26eec1795d464ac4b66abd29e60343e6252/README.md#does-it-work-under-windows

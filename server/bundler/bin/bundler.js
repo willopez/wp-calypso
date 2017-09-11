@@ -3,19 +3,19 @@
 /**
  * External dependencies
  */
-import webpack from 'webpack';
-import cp from 'child_process';
-import fs from 'fs';
-import path from 'path';
-import async from 'async';
-import os from 'os';
+const webpack = require( 'webpack' );
+const cp =  require( 'child_process' );
+const fs = require( 'fs' );
+const path = require( 'path' );
+const async = require( 'async' );
+const os = require( 'os' );
 
 /**
  * Internal dependencies
  */
-import webpackConfig from 'webpack.config.babel';
-import utils from '../utils';
-import config from '../../config';
+const webpackConfig = require( 'webpack.config.babel' );
+const utils = require( '../utils' );
+const config = require( '../../config' ).default;
 
 /**
  * Variables
