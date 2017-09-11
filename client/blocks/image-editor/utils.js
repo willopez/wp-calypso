@@ -2,7 +2,7 @@
  * External dependencies
  */
 import {
-	indexOf,
+	includes,
 	get
 } from 'lodash';
 
@@ -29,11 +29,11 @@ import {
  * @returns {String}              the default valid aspect ratio image editor should use
  */
 export function getDefaultAspectRatio( aspectRatio = null, aspectRatios = AspectRatiosValues ) {
-	if ( indexOf( aspectRatios, aspectRatio ) === -1 ) {
+	if ( ! includes( aspectRatios, aspectRatio ) ) {
 		aspectRatio = get( aspectRatios, '0', AspectRatios.FREE );
 	}
 
-	return indexOf( AspectRatiosValues, aspectRatio ) === -1
-		? getDefaultAspectRatio( aspectRatio )
-		: aspectRatio;
+	return includes( AspectRatiosValues, aspectRatio )
+		? aspectRatio
+		: getDefaultAspectRatio( aspectRatio );
 }
