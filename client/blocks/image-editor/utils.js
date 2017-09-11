@@ -10,7 +10,8 @@ import {
  * Internal dependencies
  */
 import {
-	AspectRatiosValues
+	AspectRatios,
+	AspectRatiosValues,
 } from 'state/ui/editor/image-editor/constants';
 
 /**
@@ -21,7 +22,7 @@ import {
  * 1. aspectRatio, if it is included in aspectRatios
  * 2. aspectRatios[ 0 ] if aspectRatio is not included in aspectRatios
  *
- * We return AllAspectRatios.FREE if no specified aspect ratio is valid.
+ * We return AspectRatios.FREE if no specified aspect ratio is valid.
  *
  * @param   {String} aspectRatio  an aspect ratio which should be validated and used as default one for image editor
  * @param   {Array}  aspectRatios list of aspect ratios to be validated and used in image editor
@@ -29,7 +30,7 @@ import {
  */
 export function getDefaultAspectRatio( aspectRatio = null, aspectRatios = AspectRatiosValues ) {
 	if ( indexOf( aspectRatios, aspectRatio ) === -1 ) {
-		aspectRatio = get( aspectRatios, '0', AspectRatiosValues.FREE );
+		aspectRatio = get( aspectRatios, '0', AspectRatios.FREE );
 	}
 
 	return indexOf( AspectRatiosValues, aspectRatio ) === -1
