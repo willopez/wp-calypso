@@ -16,5 +16,5 @@ export default createSelector(
 		const siteIds = Object.keys( getSitesItems( state ) );
 		return siteIds.some( ( siteId ) => isJetpackSite( state, siteId ) );
 	},
-	( state ) => state.sites.items
+	( state ) => getSitesItems( state )
 );

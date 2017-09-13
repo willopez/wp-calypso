@@ -60,7 +60,7 @@ export const getSiteBySlug = createSelector(
 			getSiteSlug( state, parseInt( siteId, 10 ) ) === siteSlug
 		) ) || null
 	),
-	( state ) => state.sites.items
+	( state ) => getSitesItems( state )
 );
 
 /**
@@ -130,7 +130,7 @@ export const getSiteCollisions = createSelector(
 			} );
 		} ), 'ID' );
 	},
-	( state ) => state.sites.items
+	( state ) => getSitesItems( state )
 );
 
 /**

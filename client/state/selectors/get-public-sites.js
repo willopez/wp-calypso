@@ -17,5 +17,5 @@ export default createSelector(
 			.filter( site => ! site.is_private )
 			.map( site => getSite( state, site.ID ) );
 	},
-	( state ) => state.sites.items
+	( state ) => getSitesItems( state )
 );
