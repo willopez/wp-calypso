@@ -104,6 +104,10 @@ export function serverRender( req, res ) {
 
 		let reduxSubtrees = [ 'documentHead' ];
 
+		if ( config.isEnabled( 'wpcom-user-bootstrap' ) ) {
+			reduxSubtrees = reduxSubtrees.concat( [ 'users', 'currentUser' ] );
+		}
+
 		// Send redux state only in logged-out scenario
 		if ( isSectionIsomorphic( context.store.getState() ) && ! context.user ) {
 			reduxSubtrees = reduxSubtrees.concat( [ 'ui', 'themes' ] );
@@ -112,7 +116,8 @@ export function serverRender( req, res ) {
 		// Send state to client
 		context.initialReduxState = pick( context.store.getState(), reduxSubtrees );
 		// And cache on the server, too
-		if ( cacheKey ) {
+		// TODO: cache without the user bootstrap part
+		if ( ! config.isEnabled( 'wpcom-user-bootstrap' ) ) {
 			const serverState = reducer( context.initialReduxState, { type: SERIALIZE } );
 			stateCache.set( cacheKey, serverState );
 		}
