@@ -11,6 +11,7 @@ const debug = require( 'debug' )( 'calypso:posts:post-edit-store' ),
 var Dispatcher = require( 'dispatcher' ),
 	decodeEntities = require( 'lib/formatting' ).decodeEntities,
 	utils = require( './utils' );
+import SitesList from 'lib/sites-list';
 
 /**
  * Module variables
@@ -48,6 +49,16 @@ function resetState() {
 	_savedPost = null;
 }
 
+const sites = new SitesList();
+
+function getSite( post ) {
+	if ( ! post || ! post.site_ID ) {
+		return null;
+	}
+
+	return sites.getSite( post.site_ID );
+}
+
 function getParentId( post ) {
 	if ( ! post || ! post.parent ) {
 		return null;
@@ -73,7 +84,7 @@ function startEditing( post ) {
 	if ( post.title ) {
 		post.title = decodeEntities( post.title );
 	}
-	_previewUrl = utils.getPreviewURL( post );
+	_previewUrl = utils.getPreviewURL( post, getSite( post ) );
 	_savedPost = Object.freeze( post );
 	_post = _savedPost;
 	_isLoading = false;
@@ -84,7 +95,7 @@ function updatePost( post ) {
 	if ( post.title ) {
 		post.title = decodeEntities( post.title );
 	}
-	_previewUrl = utils.getPreviewURL( post );
+	_previewUrl = utils.getPreviewURL( post, getSite( post ) );
 	_savedPost = Object.freeze( post );
 	_post = _savedPost;
 	_isNew = false;
@@ -280,7 +291,8 @@ function dispatcherCallback( payload ) {
 		case 'RECEIVE_POST_AUTOSAVE':
 			_isAutosaving = false;
 			if ( ! action.error ) {
-				_previewUrl = utils.getPreviewURL( assign( { preview_URL: action.autosave.preview_URL }, _savedPost ) );
+				const post = assign( { preview_URL: action.autosave.preview_URL }, _savedPost );
+				_previewUrl = utils.getPreviewURL( post, getSite( post ) );
 			}
 			PostEditStore.emit( 'change' );
 			break;

@@ -9,9 +9,7 @@ import { includes } from 'lodash';
 /**
  * Internal dependencies
  */
-var postNormalizer = require( 'lib/post-normalizer' ),
-	sites = require( 'lib/sites-list' )();
-
+import postNormalizer from 'lib/post-normalizer';
 import { getFeaturedImageId } from './utils-ssr-ready';
 
 var utils = {
@@ -28,8 +26,8 @@ var utils = {
 		return `${basePath}/${post.type}/${site.slug}/${post.ID}`;
 	},
 
-	getPreviewURL: function( post ) {
-		var parsed, site, previewUrl;
+	getPreviewURL: function( post, site ) {
+		let parsed, previewUrl;
 
 		if ( ! post || ! post.URL || post.status === 'trash' ) {
 			return '';
@@ -46,12 +44,9 @@ var utils = {
 			previewUrl = url.format( parsed );
 		}
 
-		if ( post.site_ID ) {
-			site = sites.getSite( post.site_ID );
-			if ( ! ( site && site.options ) ) {
-				// site info is still loading, just use what we already have until it does
-				return previewUrl;
-			}
+		// If site info is loaded and available, use it. Otherwise, if it's still loading,
+		// just use what we already have until it loads
+		if ( site && site.options ) {
 			if ( site.options.is_mapped_domain ) {
 				previewUrl = previewUrl.replace( site.URL, site.options.unmapped_url );
 			}

@@ -116,7 +116,7 @@ class Draft extends Component {
 	}
 
 	previewPost = () => {
-		window.open( utils.getPreviewURL( this.props.post ) );
+		window.open( utils.getPreviewURL( this.props.post, this.props.site ) );
 	}
 
 	publishPost = () => {
