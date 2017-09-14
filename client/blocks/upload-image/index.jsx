@@ -19,8 +19,9 @@ import {
 	ERROR_UPLOADING_IMAGE,
 } from './constants';
 import { AspectRatios } from 'state/ui/editor/image-editor/constants';
-import { getSelectedSiteId } from 'state/ui/selectors';
 import { getMediaItem } from 'state/selectors';
+import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSite } from 'state/sites/selectors';
 import Dialog from 'components/dialog';
 import FilePicker from 'components/file-picker';
 import { resetAllImageEditorState } from 'state/ui/editor/image-editor/actions';
@@ -144,7 +145,7 @@ class UploadImage extends Component {
 	};
 
 	uploadImage( imageBlob, imageEditorProps ) {
-		const { siteId } = this.props;
+		const { site } = this.props;
 
 		const { fileName, mimeType } = imageEditorProps;
 
@@ -164,7 +165,7 @@ class UploadImage extends Component {
 		MediaStore.on( 'change', this.handleMediaStoreChange );
 
 		// Upload the image.
-		MediaActions.add( siteId, item );
+		MediaActions.add( site, item );
 
 		this.setState( { isUploading: true } );
 	}
@@ -435,6 +436,7 @@ export default connect(
 
 		return {
 			siteId,
+			site: getSite( state, siteId ),
 			defaultImage,
 		};
 	},
