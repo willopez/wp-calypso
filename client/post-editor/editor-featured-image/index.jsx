@@ -2,6 +2,7 @@
  * External dependencies
  */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Gridicon from 'gridicons';
 import { connect } from 'react-redux';
@@ -26,12 +27,14 @@ import { recordTracksEvent } from 'state/analytics/actions';
 
 class EditorFeaturedImage extends Component {
 	static propTypes = {
-		maxWidth: React.PropTypes.number,
-		site: React.PropTypes.object,
-		post: React.PropTypes.object,
-		selecting: React.PropTypes.bool,
-		onImageSelected: React.PropTypes.func,
-		featuredImage: React.PropTypes.object,
+		maxWidth: PropTypes.number,
+		site: PropTypes.object,
+		post: PropTypes.object,
+		selecting: PropTypes.bool,
+		onImageSelected: PropTypes.func,
+		featuredImage: PropTypes.object,
+		hasDropZone: PropTypes.bool,
+		isDropZoneVisible: PropTypes.bool,
 	};
 
 	static defaultProps = {
