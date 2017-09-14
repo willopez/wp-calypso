@@ -1,7 +1,8 @@
 /**
  * External Dependencies
  */
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { map } from 'lodash';
 import { localize } from 'i18n-calypso';
 
@@ -13,7 +14,6 @@ import wpcom from 'lib/wp';
 /**
  * Module variables
  */
-const { Component, PropTypes } = React;
 const noop = () => {};
 const undocumented = wpcom.undocumented();
 
