@@ -42,10 +42,14 @@ const redirectNonJetpack = redirectRoute => WrappedComponent => {
 		redirect = () => {
 			const { siteSlug } = this.props;
 
-			if ( siteSlug ) {
-				const url = redirectRoute ? redirectRoute : '/settings/general/';
-
-				page( url + siteSlug );
+			let route = '';
+			if ( redirectRoute ) {
+				const getSiteSlug = ( redirectRoute.split( '/' ) ).slice( -1 )[ 0 ];
+				route = getSiteSlug ? redirectRoute : redirectRoute + siteSlug;
+				page( route );
+			} else {
+				route = siteSlug ? '/settings/general/' + siteSlug : '/settings/general/';
+				page( route );
 			}
 		};
 
