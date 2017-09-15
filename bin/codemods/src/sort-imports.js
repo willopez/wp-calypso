@@ -50,6 +50,11 @@ const shouldFormat = text => {
  * Removes the extra newlines between two import statements
  */
 const removeExtraNewlines = str => str.replace(/(import.*\n)\n+(import)/g, '$1$2');
+
+/**
+ * Adds a newline in between the last import of external deps + the internal deps docblock
+ */
+const addNewlineBeforeDocBlock = str => str.replace( /(import.*\n)(\/\*\*)/, '$1\n$2' );
 const isExternal = importNode => externalDependenciesSet.has( importNode.source.value );
 
 module.exports = function ( file, api ) {
@@ -76,14 +81,15 @@ module.exports = function ( file, api ) {
 	const newDeclarations = []
 		.concat( includeFormatBlock && '/** @format */')
 		.concat( externalDeps )
-		.concat('')
 		.concat( internalDeps );
 
 	declarations.remove();
 
-	return removeExtraNewlines( src
-		.find(j.Statement)
-		.at(0)
-		.insertBefore(newDeclarations)
-		.toSource( { quote: 'single' } ) );
+	return  addNewlineBeforeDocBlock(
+		removeExtraNewlines( src
+			.find(j.Statement)
+			.at(0)
+			.insertBefore(newDeclarations)
+			.toSource( { quote: 'single' } ) )
+		);
 };
