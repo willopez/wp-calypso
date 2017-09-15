@@ -18,6 +18,7 @@ import PostUtils from 'lib/posts/utils';
 import * as stats from 'lib/posts/stats';
 import EditorFeaturedImagePreviewContainer from './preview-container';
 import Button from 'components/button';
+import RemoveButton from 'components/remove-button';
 import { getMediaItem } from 'state/selectors';
 import { getFeaturedImageId } from 'lib/posts/utils';
 import QueryMedia from 'components/data/query-media';
@@ -82,6 +83,15 @@ class EditorFeaturedImage extends Component {
 		} );
 	};
 
+	static removeImage() {
+		PostActions.edit( {
+			featured_image: ''
+		} );
+
+		stats.recordStat( 'featured_image_removed' );
+		stats.recordEvent( 'Featured image removed' );
+	}
+
 	renderMediaModal = () => {
 		if ( ! this.props.site ) {
 			return;
@@ -133,16 +143,21 @@ class EditorFeaturedImage extends Component {
 						: null
 				}
 				{ this.renderMediaModal() }
-				<Button
+				<div className="editor-featured-image__inner-content">
+					<Button
 						className="editor-featured-image__current-image"
 						onClick={ this.showMediaModal }
 						borderless
 						compact>
-					{ this.renderCurrentImage() }
-					<Gridicon
-						icon="pencil"
-						className="editor-featured-image__edit-icon" />
-				</Button>
+						{ this.renderCurrentImage() }
+						<Gridicon
+							icon="pencil"
+							className="editor-featured-image__edit-icon" />
+					</Button>
+					{ featuredImageId ? <RemoveButton onRemove={ EditorFeaturedImage.removeImage } /> : '' }
+				</div>
+
+				{ this.props.hasDropZone ? <FeaturedImageDropZone /> : '' }
 			</div>
 		);
 	}
