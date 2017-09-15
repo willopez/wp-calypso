@@ -2,12 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import Gridicon from 'gridicons';
 import { connect } from 'react-redux';
 import { isNumber } from 'lodash';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
@@ -23,7 +23,6 @@ import Button from 'components/button';
 import { getMediaItem } from 'state/selectors';
 import { getFeaturedImageId } from 'lib/posts/utils';
 import QueryMedia from 'components/data/query-media';
-import { localize } from 'i18n-calypso';
 import { recordTracksEvent } from 'state/analytics/actions';
 
 class EditorFeaturedImage extends Component {

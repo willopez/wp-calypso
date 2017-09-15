@@ -1,8 +1,7 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { includes, head, omit, find } from 'lodash';
@@ -10,7 +9,7 @@ import page from 'page';
 import { localize } from 'i18n-calypso';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Card from 'components/card';
 import { getCurrentUser } from 'state/current-user/selectors';

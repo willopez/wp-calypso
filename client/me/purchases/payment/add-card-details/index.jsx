@@ -1,14 +1,13 @@
-import { connect } from 'react-redux';
-
 /**
- * External Dependencies
+ * External dependencies
  */
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import React from 'react';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { clearPurchases } from 'state/purchases/actions';
 import CreditCardForm from 'blocks/credit-card-form';

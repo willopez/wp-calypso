@@ -1,9 +1,8 @@
-import { connect } from 'react-redux';
-import { localize } from 'i18n-calypso';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
 
 import React from 'react';

@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
@@ -29,12 +28,7 @@ import { getStatsPathForTab } from 'lib/route/path';
 import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
 import { getSiteRoles } from 'state/site-roles/selectors';
 import { activateModule } from 'state/jetpack/modules/actions';
-import {
-	isActivatingJetpackModule,
-	isJetpackModuleActive,
-	isJetpackModuleUnavailableInDevelopmentMode,
-	isJetpackSiteInDevelopmentMode
-} from 'state/selectors';
+import { isActivatingJetpackModule, isJetpackModuleActive, isJetpackModuleUnavailableInDevelopmentMode, isJetpackSiteInDevelopmentMode } from 'state/selectors';
 
 class JetpackSiteStats extends Component {
 	static defaultProps = {

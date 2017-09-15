@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classnames from 'classnames';
 import { dropRightWhile, negate, identity } from 'lodash';
@@ -18,11 +17,7 @@ import CustomNameserversRow from './custom-nameservers-row';
 import { change, remove } from 'lib/domains/nameservers';
 import Notice from 'components/notice';
 import support from 'lib/url/support';
-import {
-	composeAnalytics,
-	recordGoogleEvent,
-	recordTracksEvent,
-} from 'state/analytics/actions';
+import { composeAnalytics, recordGoogleEvent, recordTracksEvent } from 'state/analytics/actions';
 
 const MIN_NAMESERVER_LENGTH = 2;
 const MAX_NAMESERVER_LENGTH = 4;

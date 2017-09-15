@@ -1,15 +1,15 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 
+import classNames from 'classnames';
+
 /**
- * Local dependencies
+ * Internal dependencies
  */
 import HeaderControl from './header-controls';
-import classNames from 'classnames';
 
 /**
  * Globals

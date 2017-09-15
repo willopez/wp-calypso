@@ -2,9 +2,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import page from 'page';
 import { compact, pickBy } from 'lodash';
@@ -25,13 +24,7 @@ import { getSiteSlug } from 'state/sites/selectors';
 import { getCurrentUserId } from 'state/current-user/selectors';
 import ThemePreview from './theme-preview';
 import config from 'config';
-import {
-	getThemeFilterTerms,
-	getThemeFilterToTermTable,
-	getThemeShowcaseDescription,
-	getThemeShowcaseTitle,
-	prependThemeFilterKeys,
-} from 'state/selectors';
+import { getThemeFilterTerms, getThemeFilterToTermTable, getThemeShowcaseDescription, getThemeShowcaseTitle, prependThemeFilterKeys } from 'state/selectors';
 import { recordTracksEvent } from 'state/analytics/actions';
 import ThemesSearchCard from './themes-magic-search-card';
 import QueryThemeFilters from 'components/data/query-theme-filters';

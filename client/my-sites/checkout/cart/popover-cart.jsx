@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { reject } from 'lodash';
 import classNames from 'classnames';

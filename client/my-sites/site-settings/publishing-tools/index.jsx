@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
@@ -20,12 +19,7 @@ import FormFieldset from 'components/forms/form-fieldset';
 import FormLabel from 'components/forms/form-label';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { regeneratePostByEmail } from 'state/jetpack/settings/actions';
-import {
-	isJetpackModuleActive,
-	isJetpackModuleUnavailableInDevelopmentMode,
-	isJetpackSiteInDevelopmentMode,
-	isRegeneratingJetpackPostByEmail
-} from 'state/selectors';
+import { isJetpackModuleActive, isJetpackModuleUnavailableInDevelopmentMode, isJetpackSiteInDevelopmentMode, isRegeneratingJetpackPostByEmail } from 'state/selectors';
 import InfoPopover from 'components/info-popover';
 import ExternalLink from 'components/external-link';
 import ClipboardButtonInput from 'components/clipboard-button-input';

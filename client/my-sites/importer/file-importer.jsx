@@ -2,15 +2,14 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import classNames from 'classnames';
 import { includes } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import { appStates } from 'state/imports/constants';
 import Card from 'components/card';
 import ErrorPane from './error-pane';

@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
@@ -21,17 +20,9 @@ import Placeholder from './placeholder';
 import { mapPostStatus as mapStatus } from 'lib/route';
 import { sortPagesHierarchically } from './helpers';
 import BlogPostsPage from './blog-posts-page';
-import {
-	hasInitializedSites,
-} from 'state/selectors';
-import {
-	getSitePostsForQueryIgnoringPage,
-	isRequestingSitePostsForQuery,
-	isSitePostsLastPageForQuery,
- } from 'state/posts/selectors';
-import {
-	getSite
-} from 'state/sites/selectors';
+import { hasInitializedSites } from 'state/selectors';
+import { getSitePostsForQueryIgnoringPage, isRequestingSitePostsForQuery, isSitePostsLastPageForQuery } from 'state/posts/selectors';
+import { getSite } from 'state/sites/selectors';
 
 export default class PageList extends Component {
 	static propTypes = {

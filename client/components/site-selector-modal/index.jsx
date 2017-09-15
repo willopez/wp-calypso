@@ -2,12 +2,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { includes } from 'lodash';
-import { localize } from 'i18n-calypso';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
@@ -15,7 +14,7 @@ import { localize } from 'i18n-calypso';
 import Dialog from 'components/dialog';
 import Button from 'components/button';
 import SitesDropdown from 'components/sites-dropdown';
-import { getPrimarySiteId, getVisibleSites } from 'state/selectors';
+import { getPrimarySiteId, getVisibleSites } from 'state/selectors';
 
 class SiteSelectorModal extends Component {
 	static propTypes = {

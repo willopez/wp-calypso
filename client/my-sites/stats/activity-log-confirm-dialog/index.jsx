@@ -2,16 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
+import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
  */
 import Dialog from 'components/dialog';
 import Button from 'components/button';
-import Gridicon from 'gridicons';
 
 class ActivityLogConfirmDialog extends Component {
 	static propTypes = {

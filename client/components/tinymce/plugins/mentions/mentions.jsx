@@ -2,16 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import ReactDomServer from 'react-dom/server';
 import { connect } from 'react-redux';
 import { escapeRegExp, findIndex, get, head, includes, last, pick } from 'lodash';
-import tinymce from 'tinymce/tinymce';
 
 /**
  * Internal dependencies
  */
+import ReactDomServer from 'react-dom/server';
+import tinymce from 'tinymce/tinymce';
 import SuggestionList from './suggestion-list';
 import EditorMention from './editor-mention';
 import QueryUsersSuggestions from 'components/data/query-users-suggestions';

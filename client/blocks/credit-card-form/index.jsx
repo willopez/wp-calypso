@@ -1,15 +1,14 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import Gridicon from 'gridicons';
+import { camelCase, forOwn, kebabCase, mapKeys, values } from 'lodash';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
-import { camelCase, forOwn, kebabCase, mapKeys, values } from 'lodash';
 import Card from 'components/card';
 import CompactCard from 'components/card/compact';
 import CreditCardFormFields from 'components/credit-card-form-fields';

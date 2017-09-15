@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { find } from 'lodash';
 import { connect } from 'react-redux';
@@ -23,11 +22,7 @@ import FeatureExample from 'components/feature-example';
 import FormButton from 'components/forms/form-button';
 import Card from 'components/card';
 import { requestWordAdsApproval, dismissWordAdsError } from 'state/wordads/approve/actions';
-import {
-	isRequestingWordAdsApprovalForSite,
-	getWordAdsErrorForSite,
-	getWordAdsSuccessForSite
-} from 'state/wordads/approve/selectors';
+import { isRequestingWordAdsApprovalForSite, getWordAdsErrorForSite, getWordAdsSuccessForSite } from 'state/wordads/approve/selectors';
 import Notice from 'components/notice';
 import NoticeAction from 'components/notice/notice-action';
 import QueryWordadsStatus from 'components/data/query-wordads-status';

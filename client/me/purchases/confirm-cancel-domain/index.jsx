@@ -1,15 +1,15 @@
+/**
+ * External dependencies
+ */
 import page from 'page';
 import { localize } from 'i18n-calypso';
-
-/**
- * External Dependencies
- */
 import PropTypes from 'prop-types';
 
 import React from 'react';
+import { connect } from 'react-redux';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import analytics from 'lib/analytics';
 import cancellationReasons from './cancellation-reasons';
@@ -17,7 +17,6 @@ import { cancelAndRefundPurchase } from 'lib/upgrades/actions';
 import Card from 'components/card';
 import { clearPurchases } from 'state/purchases/actions';
 import ConfirmCancelDomainLoadingPlaceholder from './loading-placeholder';
-import { connect } from 'react-redux';
 import FormButton from 'components/forms/form-button';
 import FormCheckbox from 'components/forms/form-checkbox';
 import FormLabel from 'components/forms/form-label';

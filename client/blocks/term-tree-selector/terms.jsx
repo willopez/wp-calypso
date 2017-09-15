@@ -2,38 +2,23 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { localize } from 'i18n-calypso';
-import List from 'react-virtualized/List';
-import {
-	debounce,
-	difference,
-	includes,
-	isEqual,
-	filter,
-	map,
-	memoize,
-	range,
-	reduce,
-} from 'lodash';
+import { debounce, difference, includes, isEqual, filter, map, memoize, range, reduce } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import List from 'react-virtualized/List';
 import analytics from 'lib/analytics';
 import NoResults from './no-results';
 import Search from './search';
 import { decodeEntities } from 'lib/formatting';
 import QueryTerms from 'components/data/query-terms';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	isRequestingTermsForQueryIgnoringPage,
-	getTermsLastPageForQuery,
-	getTermsForQueryIgnoringPage,
-} from 'state/terms/selectors';
+import { isRequestingTermsForQueryIgnoringPage, getTermsLastPageForQuery, getTermsForQueryIgnoringPage } from 'state/terms/selectors';
 
 /**
  * Constants

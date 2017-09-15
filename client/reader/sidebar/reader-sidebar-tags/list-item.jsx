@@ -1,9 +1,8 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { localize } from 'i18n-calypso';
@@ -11,7 +10,7 @@ import { identity } from 'lodash';
 import Gridicon from 'gridicons';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import ReaderSidebarHelper from '../helper';
 import { recordAction, recordGaEvent, recordTrack } from 'reader/stats';

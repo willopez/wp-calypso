@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Gridicon from 'gridicons';
@@ -18,11 +17,7 @@ import LoggedOutFormLinks from 'components/logged-out-form/links';
 import LoggedOutFormLinkItem from 'components/logged-out-form/link-item';
 import JetpackConnectNotices from './jetpack-connect-notices';
 import SiteUrlInput from './site-url-input';
-import {
-	getGlobalSelectedPlan,
-	getConnectingSite,
-	getJetpackSiteByUrl
-} from 'state/jetpack-connect/selectors';
+import { getGlobalSelectedPlan, getConnectingSite, getJetpackSiteByUrl } from 'state/jetpack-connect/selectors';
 import { isRequestingSites } from 'state/sites/selectors';
 import QuerySites from 'components/data/query-sites';
 import JetpackInstallStep from './install-step';
@@ -33,15 +28,7 @@ import MainWrapper from './main-wrapper';
 import FormattedHeader from 'components/formatted-header';
 import HelpButton from './help-button';
 import untrailingslashit from 'lib/route/untrailingslashit';
-import {
-	confirmJetpackInstallStatus,
-	dismissUrl,
-	goToRemoteAuth,
-	goToPluginInstall,
-	goToPlans,
-	goToPluginActivation,
-	checkUrl
-} from 'state/jetpack-connect/actions';
+import { confirmJetpackInstallStatus, dismissUrl, goToRemoteAuth, goToPluginInstall, goToPlans, goToPluginActivation, checkUrl } from 'state/jetpack-connect/actions';
 
 /**
  * Constants

@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
@@ -20,11 +19,7 @@ import CompactFormToggle from 'components/forms/form-toggle/compact';
 import InfoPopover from 'components/info-popover';
 import ExternalLink from 'components/external-link';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	isJetpackModuleActive,
-	isJetpackModuleUnavailableInDevelopmentMode,
-	isJetpackSiteInDevelopmentMode
-} from 'state/selectors';
+import { isJetpackModuleActive, isJetpackModuleUnavailableInDevelopmentMode, isJetpackSiteInDevelopmentMode } from 'state/selectors';
 import QueryJetpackConnection from 'components/data/query-jetpack-connection';
 
 class AfterTheDeadline extends Component {

@@ -2,17 +2,16 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { identity, noop, sample } from 'lodash';
 import store from 'store';
 import Gridicon from 'gridicons';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
-import { localize } from 'i18n-calypso';
 import { recordTracksEvent } from 'state/analytics/actions';
 
 const getRandomPromo = () => {

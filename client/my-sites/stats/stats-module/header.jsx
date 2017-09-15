@@ -2,15 +2,14 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import Gridicon from 'gridicons';
+import titlecase from 'to-title-case';
 
 /**
  * Internal dependencies
  */
 import analytics from 'lib/analytics';
-import titlecase from 'to-title-case';
 
 export default React.createClass( {
 	displayName: 'StatsModuleHeader',

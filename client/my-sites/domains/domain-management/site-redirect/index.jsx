@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
@@ -25,11 +24,7 @@ import paths from 'my-sites/domains/paths';
 import * as upgradesActions from 'lib/upgrades/actions';
 import Card from 'components/card/compact';
 import SectionHeader from 'components/section-header';
-import {
-	composeAnalytics,
-	recordGoogleEvent,
-	recordTracksEvent,
-} from 'state/analytics/actions';
+import { composeAnalytics, recordGoogleEvent, recordTracksEvent } from 'state/analytics/actions';
 import { withoutHttp } from 'lib/url';
 
 class SiteRedirect extends React.Component {

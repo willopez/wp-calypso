@@ -2,11 +2,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
 import { includes } from 'lodash';
+import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
@@ -17,17 +17,13 @@ import FormFieldset from 'components/forms/form-fieldset';
 import FormLabel from 'components/forms/form-label';
 import FormTextInput from 'components/forms/form-text-input';
 import FormInputValidation from 'components/forms/form-input-validation';
-import Gridicon from 'gridicons';
 import InfoPopover from 'components/info-popover';
 import ExternalLink from 'components/external-link';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getJetpackSettingsSaveError, getJetpackSettingsSaveRequestStatus } from 'state/selectors';
 import FormSettingExplanation from 'components/forms/form-setting-explanation';
 import { hasFeature } from 'state/sites/plans/selectors';
-import {
-	FEATURE_SPAM_AKISMET_PLUS,
-	PLAN_JETPACK_PERSONAL,
-} from 'lib/plans/constants';
+import { FEATURE_SPAM_AKISMET_PLUS, PLAN_JETPACK_PERSONAL } from 'lib/plans/constants';
 
 const SpamFilteringSettings = ( {
 	currentAkismetKey,

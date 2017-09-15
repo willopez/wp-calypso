@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { flowRight, get, partial, some, values, xor } from 'lodash';
 import { connect } from 'react-redux';
@@ -15,7 +14,7 @@ import MultiCheckbox from 'components/forms/multi-checkbox';
 import { getPostTypes } from 'state/post-types/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getSiteSettings } from 'state/site-settings/selectors';
-import { getSharingButtons } from 'state/selectors';
+import { getSharingButtons } from 'state/selectors';
 import { isJetpackSite, isJetpackMinimumVersion } from 'state/sites/selectors';
 import QueryPostTypes from 'components/data/query-post-types';
 import { recordGoogleEvent } from 'state/analytics/actions';

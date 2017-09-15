@@ -1,9 +1,8 @@
-import { connect } from 'react-redux';
-import { localize } from 'i18n-calypso';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
 
 import React from 'react';
@@ -12,10 +11,7 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import {
-	getSelectedSite,
-	getSelectedSiteId,
-} from 'state/ui/selectors';
+import { getSelectedSite, getSelectedSiteId } from 'state/ui/selectors';
 import config from 'config';
 import notices from 'notices';
 import urlSearch from 'lib/url-search';

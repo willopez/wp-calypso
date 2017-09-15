@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import AuthorSelector from 'blocks/author-selector';
 import UserItem from 'components/user';
 import user from 'lib/user';

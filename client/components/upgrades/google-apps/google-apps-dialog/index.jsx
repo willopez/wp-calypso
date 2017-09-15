@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { localize } from 'i18n-calypso';
@@ -19,11 +18,7 @@ import GoogleAppsProductDetails from './product-details';
 import { abtest } from 'lib/abtest';
 import { validate as validateGappsUsers, filter as filterUsers } from 'lib/domains/google-apps-users';
 import { getAnnualPrice, getMonthlyPrice } from 'lib/google-apps';
-import {
-	recordTracksEvent,
-	recordGoogleEvent,
-	composeAnalytics,
-} from 'state/analytics/actions';
+import { recordTracksEvent, recordGoogleEvent, composeAnalytics } from 'state/analytics/actions';
 import { getCurrentUserCurrencyCode } from 'state/current-user/selectors';
 
 class GoogleAppsDialog extends React.Component {

@@ -1,21 +1,20 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
 import classnames from 'classnames';
-import url from 'url';
 import { localize } from 'i18n-calypso';
 import closest from 'component-closest';
 import { get } from 'lodash';
 import { connect } from 'react-redux';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
+import url from 'url';
 import Card from 'components/card';
 import ReaderAvatar from 'blocks/reader-avatar';
 import { getSite } from 'state/reader/sites/selectors';

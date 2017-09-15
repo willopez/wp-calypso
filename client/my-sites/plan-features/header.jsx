@@ -2,34 +2,20 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { noop } from 'lodash';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
+import { localize } from 'i18n-calypso';
 
 /**
- * Internal Dependencies
- **/
-import { localize } from 'i18n-calypso';
+ * Internal dependencies
+ */
 import InfoPopover from 'components/info-popover';
 import { isMobile } from 'lib/viewport';
 import Ribbon from 'components/ribbon';
 import PlanPrice from 'my-sites/plan-price';
-import {
-	PLAN_FREE,
-	PLAN_PREMIUM,
-	PLAN_BUSINESS,
-	PLAN_JETPACK_FREE,
-	PLAN_JETPACK_BUSINESS,
-	PLAN_JETPACK_BUSINESS_MONTHLY,
-	PLAN_JETPACK_PREMIUM,
-	PLAN_JETPACK_PREMIUM_MONTHLY,
-	PLAN_JETPACK_PERSONAL,
-	PLAN_JETPACK_PERSONAL_MONTHLY,
-	PLAN_PERSONAL,
-	getPlanClass,
-} from 'lib/plans/constants';
+import { PLAN_FREE, PLAN_PREMIUM, PLAN_BUSINESS, PLAN_JETPACK_FREE, PLAN_JETPACK_BUSINESS, PLAN_JETPACK_BUSINESS_MONTHLY, PLAN_JETPACK_PREMIUM, PLAN_JETPACK_PREMIUM_MONTHLY, PLAN_JETPACK_PERSONAL, PLAN_JETPACK_PERSONAL_MONTHLY, PLAN_PERSONAL, getPlanClass } from 'lib/plans/constants';
 import PlanIcon from 'components/plans/plan-icon';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getCurrentPlan } from 'state/sites/plans/selectors';

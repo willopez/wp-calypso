@@ -2,10 +2,9 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { flowRight } from 'lodash';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 
 /**
@@ -20,7 +19,7 @@ import { saveSiteSettings } from 'state/site-settings/actions';
 import { saveSharingButtons } from 'state/sites/sharing-buttons/actions';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getSiteSettings, isSavingSiteSettings, isSiteSettingsSaveSuccessful } from 'state/site-settings/selectors';
-import { getSharingButtons, isSavingSharingButtons, isSharingButtonsSaveSuccessful } from 'state/selectors';
+import { getSharingButtons, isSavingSharingButtons, isSharingButtonsSaveSuccessful } from 'state/selectors';
 import { isJetpackSite } from 'state/sites/selectors';
 import { isJetpackModuleActive } from 'state/selectors';
 import { recordGoogleEvent } from 'state/analytics/actions';

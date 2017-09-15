@@ -2,9 +2,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import { Component } from 'react';
-import shallowEqual from 'react-pure-render/shallowEqual';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import debug from 'debug';
@@ -12,6 +10,7 @@ import debug from 'debug';
 /**
  * Internal dependencies
  */
+import shallowEqual from 'react-pure-render/shallowEqual';
 import { isRequestingSitePostsForQuery, isRequestingSitePost } from 'state/posts/selectors';
 import { requestSitePosts, requestSitePost } from 'state/posts/actions';
 

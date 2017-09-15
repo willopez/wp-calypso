@@ -2,13 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import Gridicon from 'gridicons';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { getDocumentHeadTitle } from 'state/document-head/selectors';
 import { setLayoutFocus } from 'state/ui/layout-focus/actions';

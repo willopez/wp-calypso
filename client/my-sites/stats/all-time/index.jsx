@@ -1,8 +1,7 @@
 /**
-* External dependencies
-*/
+ * External dependencies
+ */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
@@ -18,10 +17,7 @@ import StatsTab from '../stats-tabs/tab';
 import SectionHeader from 'components/section-header';
 import QuerySiteStats from 'components/data/query-site-stats';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	isRequestingSiteStatsForQuery,
-	getSiteStatsNormalizedData
-} from 'state/stats/lists/selectors';
+import { isRequestingSiteStatsForQuery, getSiteStatsNormalizedData } from 'state/stats/lists/selectors';
 
 class StatsAllTime extends Component {
 

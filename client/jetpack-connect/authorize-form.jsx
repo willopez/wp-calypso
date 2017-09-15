@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -13,24 +12,8 @@ import cookie from 'cookie';
  */
 import Main from 'components/main';
 import LoggedOutFormLinks from 'components/logged-out-form/links';
-import {
-	createAccount,
-	authorize,
-	goBackToWpAdmin,
-	retryAuth,
-	goToXmlrpcErrorFallbackUrl
-} from 'state/jetpack-connect/actions';
-import {
-	getAuthorizationData,
-	getAuthorizationRemoteSite,
-	isCalypsoStartedConnection,
-	hasXmlrpcError,
-	hasExpiredSecretError,
-	isRemoteSiteOnSitesList,
-	getAuthAttempts,
-	getSiteIdFromQueryObject,
-	getUserAlreadyConnected
-} from 'state/jetpack-connect/selectors';
+import { createAccount, authorize, goBackToWpAdmin, retryAuth, goToXmlrpcErrorFallbackUrl } from 'state/jetpack-connect/actions';
+import { getAuthorizationData, getAuthorizationRemoteSite, isCalypsoStartedConnection, hasXmlrpcError, hasExpiredSecretError, isRemoteSiteOnSitesList, getAuthAttempts, getSiteIdFromQueryObject, getUserAlreadyConnected } from 'state/jetpack-connect/selectors';
 import { getCurrentUser } from 'state/current-user/selectors';
 import { recordTracksEvent, setTracksAnonymousUserId } from 'state/analytics/actions';
 import EmptyContent from 'components/empty-content';

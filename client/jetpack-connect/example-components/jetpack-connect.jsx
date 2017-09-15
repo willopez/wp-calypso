@@ -2,16 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classNames from 'classnames';
 import Gridicon from 'gridicons';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
 import FormTextInput from 'components/forms/form-text-input';
-import { localize } from 'i18n-calypso';
 
 const JetpackConnectExampleConnect = ( { isLegacy, url, translate, onClick } ) => {
 	const contentClassName = classNames( 'example-components__content', 'example-components__connect-jetpack', {

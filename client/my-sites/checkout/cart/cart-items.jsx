@@ -2,15 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
+
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
 import CartItem from './cart-item';
 import { cartItems } from 'lib/cart-values';
-import { localize } from 'i18n-calypso';
 
 const COLLAPSED_ITEMS_COUNT = 2;
 

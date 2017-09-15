@@ -2,15 +2,14 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
-import config from 'config';
 
 /**
  * Internal dependencies
  */
+import config from 'config';
 import CompactCard from 'components/card/compact';
 import EmptyContent from 'components/empty-content';
 import ImporterStore, { getState as getImporterState } from 'lib/importer/store';

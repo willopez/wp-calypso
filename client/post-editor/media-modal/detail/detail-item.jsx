@@ -2,18 +2,17 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { flowRight, get, includes, noop } from 'lodash';
 import { localize } from 'i18n-calypso';
-import url from 'url';
 import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
  */
+import url from 'url';
 import EditorMediaModalDetailFields from './detail-fields';
 import EditorMediaModalDetailFileInfo from './detail-file-info';
 import EditorMediaModalDetailPreviewImage from './detail-preview-image';

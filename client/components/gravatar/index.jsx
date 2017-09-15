@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import url from 'url';
-
 /**
  * External dependencies
  */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import qs from 'querystring';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 import classnames from 'classnames';
@@ -14,6 +10,8 @@ import classnames from 'classnames';
 /**
  * Internal dependencies
  */
+import url from 'url';
+import qs from 'querystring';
 import safeImageURL from 'lib/safe-image-url';
 import { getUserTempGravatar } from 'state/current-user/gravatar-status/selectors';
 

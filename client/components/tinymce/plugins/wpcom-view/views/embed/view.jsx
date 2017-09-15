@@ -1,17 +1,16 @@
-import ReactDom from 'react-dom';
-
 /**
  * External dependencies
  */
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
-import { Container } from 'flux/utils';
 import { pick } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import { Container } from 'flux/utils';
 import ResizableIframe from 'components/resizable-iframe';
 import EmbedsStore from 'lib/embeds/store';
 import generateEmbedFrameMarkup from 'lib/embed-frame-markup';

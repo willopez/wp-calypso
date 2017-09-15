@@ -1,11 +1,10 @@
+/**
+ * External dependencies
+ */
 import classNames from 'classnames';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
 import page from 'page';
-
-/**
- * External dependencies
- */
 import PropTypes from 'prop-types';
 
 import React from 'react';
@@ -17,11 +16,7 @@ import Button from 'components/button';
 import { cancelPrivacyProtection } from 'state/purchases/actions';
 import Card from 'components/card';
 import HeaderCake from 'components/header-cake';
-import {
-	getByPurchaseId,
-	getPurchasesError,
-	hasLoadedUserPurchasesFromServer,
-} from 'state/purchases/selectors';
+import { getByPurchaseId, getPurchasesError, hasLoadedUserPurchasesFromServer } from 'state/purchases/selectors';
 import { getPurchase, isDataLoading, goToManagePurchase, recordPageView } from '../utils';
 import { getSelectedSite as getSelectedSiteSelector } from 'state/ui/selectors';
 import { hasPrivacyProtection, isRefundable } from 'lib/purchases';

@@ -2,18 +2,17 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import page from 'page';
 import classnames from 'classnames';
 import { get, includes } from 'lodash';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
 import RootChild from 'components/root-child';
-import { localize } from 'i18n-calypso';
 import { clearCustomizations, fetchPreviewMarkup, saveCustomizations } from 'state/preview/actions';
 import { isPreviewUnsaved, getPreviewCustomizations } from 'state/preview/selectors';
 import { getSelectedSite, getSelectedSiteId } from 'state/ui/selectors';

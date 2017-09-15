@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classnames from 'classnames';
 import { localize } from 'i18n-calypso';
@@ -15,7 +14,7 @@ import FormInputValidation from 'components/forms/form-input-validation';
 import FormLabel from 'components/forms/form-label';
 import FormTextInput from 'components/forms/form-text-input';
 import FormTextInputWithAffixes from 'components/forms/form-text-input-with-affixes';
-import FormSettingExplanation from 'components/forms/form-setting-explanation' ;
+import FormSettingExplanation from 'components/forms/form-setting-explanation';
 
 class MxRecord extends React.Component {
 	static initialFields = {

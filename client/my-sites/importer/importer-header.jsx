@@ -2,15 +2,14 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import { flowRight, includes } from 'lodash';
 import SocialLogo from 'social-logos';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import Button from 'components/forms/form-button';
 import { appStates } from 'state/imports/constants';
 import { cancelImport, resetImport, startImport } from 'lib/importer/actions';

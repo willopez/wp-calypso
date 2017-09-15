@@ -2,18 +2,17 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveAs } from 'browser-filesaver';
-import { localize } from 'i18n-calypso';
-import { flowRight } from 'lodash';
+import { localize } from 'i18n-calypso';
+import { flowRight } from 'lodash';
 import Gridicon from 'gridicons';
+import titlecase from 'to-title-case';
 
 /**
  * Internal dependencies
  */
-import titlecase from 'to-title-case';
 import Button from 'components/button';
 import { getSiteStatsCSVData, isRequestingSiteStatsForQuery } from 'state/stats/lists/selectors';
 import { recordGoogleEvent } from 'state/analytics/actions';

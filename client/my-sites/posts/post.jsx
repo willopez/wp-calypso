@@ -2,10 +2,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import shallowEqual from 'react-pure-render/shallowEqual';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -14,6 +12,7 @@ import { partial, noop } from 'lodash';
 /**
  * Internal dependencies
  */
+import shallowEqual from 'react-pure-render/shallowEqual';
 import { isEnabled } from 'config';
 import Card from 'components/card';
 import PostControls from './post-controls';
@@ -29,9 +28,8 @@ import { setPreviewUrl } from 'state/ui/preview/actions';
 import { setLayoutFocus } from 'state/ui/layout-focus/actions';
 import { getPostPreviewUrl } from 'state/posts/selectors';
 import { isSingleUserSite, isSitePreviewable } from 'state/sites/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPath } from 'state/ui/editor/selectors';
-
+import { getSelectedSiteId } from 'state/ui/selectors';
+import { getEditorPath } from 'state/ui/editor/selectors';
 import Comments from 'blocks/comments';
 import PostShare from 'blocks/post-share';
 import PostActions from 'blocks/post-actions';

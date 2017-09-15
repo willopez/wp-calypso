@@ -2,12 +2,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import page from 'page';
-import { localize } from 'i18n-calypso';
-import { flowRight } from 'lodash';
+import { localize } from 'i18n-calypso';
+import { flowRight } from 'lodash';
 
 /**
  * Internal dependencies
@@ -26,7 +25,7 @@ import QueryPosts from 'components/data/query-posts';
 import QueryPostStats from 'components/data/query-post-stats';
 import EmptyContent from 'components/empty-content';
 import { getPostStat, isRequestingPostStats } from 'state/stats/posts/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'state/ui/selectors';
 import Button from 'components/button';
 import WebPreview from 'components/web-preview';
 import { getSiteSlug, isJetpackSite, isSitePreviewable } from 'state/sites/selectors';

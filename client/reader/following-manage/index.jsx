@@ -1,32 +1,24 @@
+/** @format */
+/**
+ * External dependencies
+ */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { trim, debounce, random, take, reject, includes } from 'lodash';
 import { localize } from 'i18n-calypso';
 import page from 'page';
-
-/** @format */
-/**
- * External Dependencies
- */
 import PropTypes from 'prop-types';
 
 import qs from 'qs';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import CompactCard from 'components/card/compact';
 import DocumentHead from 'components/data/document-head';
 import SearchInput from 'components/search';
 import ReaderMain from 'components/reader-main';
-import {
-	getReaderFeedsForQuery,
-	getReaderFeedsCountForQuery,
-	getReaderRecommendedSites,
-	getReaderRecommendedSitesPagingOffset,
-	getBlockedSites,
-	getReaderAliasedFollowFeedUrl,
-} from 'state/selectors';
+import { getReaderFeedsForQuery, getReaderFeedsCountForQuery, getReaderRecommendedSites, getReaderRecommendedSitesPagingOffset, getBlockedSites, getReaderAliasedFollowFeedUrl } from 'state/selectors';
 import QueryReaderFeedsSearch from 'components/data/query-reader-feeds-search';
 import QueryReaderRecommendedSites from 'components/data/query-reader-recommended-sites';
 import RecommendedSites from 'blocks/reader-recommended-sites';
@@ -36,10 +28,7 @@ import FollowingManageEmptyContent from './empty';
 import MobileBackToSidebar from 'components/mobile-back-to-sidebar';
 import { addQueryArgs } from 'lib/url';
 import FollowButton from 'reader/follow-button';
-import {
-	READER_FOLLOWING_MANAGE_URL_INPUT,
-	READER_FOLLOWING_MANAGE_RECOMMENDATION,
-} from 'reader/follow-button/follow-sources';
+import { READER_FOLLOWING_MANAGE_URL_INPUT, READER_FOLLOWING_MANAGE_RECOMMENDATION } from 'reader/follow-button/follow-sources';
 import { resemblesUrl, withoutHttp, addSchemeIfMissing } from 'lib/url';
 import { getReaderFollowsCount } from 'state/selectors';
 import { recordTrack, recordAction } from 'reader/stats';

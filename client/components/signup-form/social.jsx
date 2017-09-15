@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import GoogleLoginButton from 'components/social-buttons/google';
 import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
+import GoogleLoginButton from 'components/social-buttons/google';
 import Card from 'components/card';
 import config from 'config';
 import { preventWidows } from 'lib/formatting';

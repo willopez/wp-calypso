@@ -2,9 +2,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import classNames from 'classnames';
 import { flowRight, includes, noop } from 'lodash';
 import Gridicon from 'gridicons';
@@ -12,6 +10,7 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import { startMappingAuthors, startUpload } from 'lib/importer/actions';
 import { appStates } from 'state/imports/constants';
 import Button from 'components/forms/form-button';

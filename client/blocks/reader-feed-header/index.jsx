@@ -1,9 +1,8 @@
-import classnames from 'classnames';
-
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
@@ -11,7 +10,7 @@ import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Card from 'components/card';
 import ReaderFollowButton from 'reader/follow-button';

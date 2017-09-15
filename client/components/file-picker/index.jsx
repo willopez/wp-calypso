@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { assign, noop } from 'lodash';
 import pick from 'component-file-picker';

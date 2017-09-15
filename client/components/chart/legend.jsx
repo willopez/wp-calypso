@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { PureComponent, Component } from 'react';
 import { find, noop } from 'lodash';
 

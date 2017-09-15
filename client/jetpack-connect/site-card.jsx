@@ -2,13 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import urlModule from 'url';
 
 /**
  * Internal dependencies
  */
+import urlModule from 'url';
 import CompactCard from 'components/card/compact';
 import QueryUserConnection from 'components/data/query-user-connection';
 import Site from 'blocks/site';

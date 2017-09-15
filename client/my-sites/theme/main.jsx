@@ -1,11 +1,7 @@
-/* eslint-disable react/no-danger  */
-// FIXME!!!^ we want to ensure we have sanitised data…
-
 /**
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import i18n from 'i18n-calypso';
@@ -39,16 +35,7 @@ import QueryUserPurchases from 'components/data/query-user-purchases';
 import QuerySitePurchases from 'components/data/query-site-purchases';
 import ThemesSiteSelectorModal from 'my-sites/themes/themes-site-selector-modal';
 import { connectOptions } from 'my-sites/themes/theme-options';
-import {
-	isThemeActive,
-	isThemePremium,
-	isPremiumThemeAvailable,
-	isWpcomTheme as isThemeWpcom,
-	getPremiumThemePrice,
-	getThemeDetailsUrl,
-	getThemeRequestErrors,
-	getThemeForumUrl,
-} from 'state/themes/selectors';
+import { isThemeActive, isThemePremium, isPremiumThemeAvailable, isWpcomTheme as isThemeWpcom, getPremiumThemePrice, getThemeDetailsUrl, getThemeRequestErrors, getThemeForumUrl } from 'state/themes/selectors';
 import { getBackPath } from 'state/themes/themes-ui/selectors';
 import PageViewTracker from 'lib/analytics/page-view-tracker';
 import DocumentHead from 'components/data/document-head';

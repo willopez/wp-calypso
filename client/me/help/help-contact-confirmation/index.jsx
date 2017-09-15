@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import FormSectionHeading from 'components/forms/form-section-heading';
 
 module.exports = React.createClass( {

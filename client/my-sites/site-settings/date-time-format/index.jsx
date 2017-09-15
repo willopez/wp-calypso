@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { capitalize, includes } from 'lodash';
@@ -15,10 +14,7 @@ import DateFormatOption from './date-format-option';
 import StartOfWeekOption from './start-of-week-option';
 import TimeFormatOption from './time-format-option';
 import { defaultDateFormats, defaultTimeFormats } from './default-formats';
-import {
-	getLocalizedDate,
-	phpToMomentDatetimeFormat,
-} from './utils';
+import { getLocalizedDate, phpToMomentDatetimeFormat } from './utils';
 
 export class DateTimeFormat extends Component {
 	static propTypes = {

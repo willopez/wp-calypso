@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { debounce } from 'lodash';
@@ -20,14 +19,9 @@ import Dialog from 'components/dialog';
 import analytics from 'lib/analytics';
 import TermsAndConditions from './terms-and-conditions';
 import QuerySiteVouchers from 'components/data/query-site-vouchers';
-import {
-	assignSiteVoucher as assignVoucher
-} from 'state/sites/vouchers/actions';
+import { assignSiteVoucher as assignVoucher } from 'state/sites/vouchers/actions';
 import { GOOGLE_CREDITS } from 'state/sites/vouchers/service-types';
-import {
-	getVouchersBySite,
-	getGoogleAdCredits
-} from 'state/sites/vouchers/selectors';
+import { getVouchersBySite, getGoogleAdCredits } from 'state/sites/vouchers/selectors';
 
 const [
 	INITIAL_STEP,

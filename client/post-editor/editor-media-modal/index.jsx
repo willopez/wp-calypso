@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { some, partial, map, get } from 'lodash';
@@ -10,7 +9,7 @@ import { some, partial, map, get } from 'lodash';
 /**
  * Internal dependencies
  */
-import MediaLibrarySelectedData from 'components/data/media-library-selected-data';
+import MediaLibrarySelectedData from 'components/data/media-library-selected-data';
 import MediaModal from 'post-editor/media-modal';
 import PostActions from 'lib/posts/actions';
 import { generateGalleryShortcode } from 'lib/media/utils';

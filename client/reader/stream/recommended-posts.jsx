@@ -1,16 +1,15 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { map, partial, some } from 'lodash';
 import { localize } from 'i18n-calypso';
 import Gridicon from 'gridicons';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { RelatedPostCard } from 'blocks/reader-related-card-v2';
 import PostStore from 'lib/feed-post-store';

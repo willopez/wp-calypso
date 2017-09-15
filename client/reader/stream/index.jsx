@@ -1,9 +1,8 @@
-import ReactDom from 'react-dom';
-
 /** @format */
 /**
  * External dependencies
  */
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 
 import React from 'react';
@@ -17,15 +16,7 @@ import { localize } from 'i18n-calypso';
  */
 import ReaderMain from 'components/reader-main';
 import EmptyContent from './empty';
-import {
-	fetchNextPage,
-	selectFirstItem,
-	selectItem,
-	selectNextItem,
-	selectPrevItem,
-	showUpdates,
-	shufflePosts,
-} from 'lib/feed-stream-store/actions';
+import { fetchNextPage, selectFirstItem, selectItem, selectNextItem, selectPrevItem, showUpdates, shufflePosts } from 'lib/feed-stream-store/actions';
 import LikeStore from 'lib/like-store/like-store';
 import LikeStoreActions from 'lib/like-store/actions';
 import LikeHelper from 'reader/like-helper';

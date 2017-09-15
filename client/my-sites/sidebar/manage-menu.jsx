@@ -2,11 +2,10 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { compact, includes, omit, reduce, get, mapValues } from 'lodash';
-import { localize } from 'i18n-calypso';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
@@ -20,8 +19,8 @@ import QueryPostTypes from 'components/data/query-post-types';
 import analytics from 'lib/analytics';
 import { decodeEntities } from 'lib/formatting';
 import MediaLibraryUploadButton from 'my-sites/media-library/upload-button';
-import { getSite, getSiteAdminUrl, getSiteSlug, isJetpackSite, isSingleUserSite } from 'state/sites/selectors';
-import { areAllSitesSingleUser, canCurrentUser } from 'state/selectors';
+import { getSite, getSiteAdminUrl, getSiteSlug, isJetpackSite, isSingleUserSite } from 'state/sites/selectors';
+import { areAllSitesSingleUser, canCurrentUser } from 'state/selectors';
 
 class ManageMenu extends PureComponent {
 	static propTypes = {

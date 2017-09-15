@@ -1,14 +1,13 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { defer, omit, includes } from 'lodash';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import PostStore from 'lib/feed-post-store';
 import PostStoreActions from 'lib/feed-post-store/actions';

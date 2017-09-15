@@ -2,9 +2,6 @@
  * External dependencies
  */
 import { find } from 'lodash';
-const PropTypes = require('prop-types');
-var React = require( 'react' ),
-	i18n = require( 'i18n-calypso' );
 
 /**
  * Internal dependencies
@@ -13,6 +10,10 @@ import config from 'config';
 import NavItem from 'components/section-nav/item';
 import NavTabs from 'components/section-nav/tabs';
 import SectionNav from 'components/section-nav';
+
+const PropTypes = require('prop-types');
+var React = require( 'react' ),
+	i18n = require( 'i18n-calypso' );
 
 module.exports = React.createClass( {
 	propTypes: {

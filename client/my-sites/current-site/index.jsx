@@ -2,12 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 import { localize } from 'i18n-calypso';
+import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
@@ -17,7 +17,6 @@ import analytics from 'lib/analytics';
 import Button from 'components/button';
 import Card from 'components/card';
 import Site from 'blocks/site';
-import Gridicon from 'gridicons';
 import UpgradesActions from 'lib/upgrades/actions';
 import DomainsStore from 'lib/domains/store';
 import DomainWarnings from 'my-sites/domains/components/domain-warnings';

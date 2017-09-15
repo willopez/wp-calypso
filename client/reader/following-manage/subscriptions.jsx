@@ -1,9 +1,8 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -13,7 +12,7 @@ import page from 'page';
 import classnames from 'classnames';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import ReaderImportButton from 'blocks/reader-import-button';
 import ReaderExportButton from 'blocks/reader-export-button';

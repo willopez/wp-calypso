@@ -1,14 +1,13 @@
-import ReactDom from 'react-dom';
-
 /**
  * External dependencies
  */
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
 
 /**
- * Internal dependecies
+ * Internal dependencies
  */
 import shortcodeUtils from 'lib/shortcode';
 import GalleryShortcode from 'components/gallery-shortcode';

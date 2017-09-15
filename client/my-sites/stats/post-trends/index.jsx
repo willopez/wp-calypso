@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
@@ -18,11 +17,7 @@ import SectionHeader from 'components/section-header';
 import QuerySiteStats from 'components/data/query-site-stats';
 import { getSiteOption } from 'state/sites/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	getSiteStatsPostStreakData,
-	getSiteStatsMaxPostsByDay,
-	getSiteStatsTotalPostsForStreakQuery
-} from 'state/stats/lists/selectors';
+import { getSiteStatsPostStreakData, getSiteStatsMaxPostsByDay, getSiteStatsTotalPostsForStreakQuery } from 'state/stats/lists/selectors';
 
 const PostTrends = React.createClass( {
 

@@ -1,12 +1,7 @@
 /**
- * Fixed notice about upcoming support closures
- */
-
-/**
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import i18n, { localize } from 'i18n-calypso';
 

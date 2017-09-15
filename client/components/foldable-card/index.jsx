@@ -1,19 +1,18 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { localize } from 'i18n-calypso';
 import { noop } from 'lodash';
+import Gridicon from 'gridicons';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Card from 'components/card';
 import CompactCard from 'components/card/compact';
-import Gridicon from 'gridicons';
 import ScreenReaderText from 'components/screen-reader-text';
 
 class FoldableCard extends Component {

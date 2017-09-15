@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { filter, get } from 'lodash';
@@ -12,19 +11,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import PlanFeatures from 'my-sites/plan-features';
-import {
-	PLAN_FREE,
-	PLAN_JETPACK_FREE,
-	PLAN_PERSONAL,
-	PLAN_PREMIUM,
-	PLAN_BUSINESS,
-	PLAN_JETPACK_PREMIUM,
-	PLAN_JETPACK_BUSINESS,
-	PLAN_JETPACK_PERSONAL,
-	PLAN_JETPACK_PREMIUM_MONTHLY,
-	PLAN_JETPACK_BUSINESS_MONTHLY,
-	PLAN_JETPACK_PERSONAL_MONTHLY,
-} from 'lib/plans/constants';
+import { PLAN_FREE, PLAN_JETPACK_FREE, PLAN_PERSONAL, PLAN_PREMIUM, PLAN_BUSINESS, PLAN_JETPACK_PREMIUM, PLAN_JETPACK_BUSINESS, PLAN_JETPACK_PERSONAL, PLAN_JETPACK_PREMIUM_MONTHLY, PLAN_JETPACK_BUSINESS_MONTHLY, PLAN_JETPACK_PERSONAL_MONTHLY } from 'lib/plans/constants';
 import QueryPlans from 'components/data/query-plans';
 import QuerySitePlans from 'components/data/query-site-plans';
 import FAQ from 'components/faq';

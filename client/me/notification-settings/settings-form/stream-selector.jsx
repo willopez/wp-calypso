@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { map } from 'lodash';
@@ -12,7 +11,7 @@ import Immutable from 'immutable';
  * Internal dependencies
  */
 import FormSelect from 'components/forms/form-select';
-import { getLabelForStream } from './locales'
+import { getLabelForStream } from './locales';
 import { getUserDevices } from 'state/selectors';
 
 class NotificationSettingsFormStreamSelector extends PureComponent {

@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { stringify } from 'qs';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { recordTrack, recordTracksRailcarInteract } from 'reader/stats';
 import analytics from 'lib/analytics';

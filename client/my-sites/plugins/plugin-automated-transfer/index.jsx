@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -15,10 +14,7 @@ import { transferStates } from 'state/automated-transfer/constants';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getSite } from 'state/sites/selectors';
 import { getAutomatedTransferStatus } from 'state/automated-transfer/selectors';
-import {
-	isAutomatedTransferActive,
-	isAutomatedTransferFailed,
-} from 'state/selectors';
+import { isAutomatedTransferActive, isAutomatedTransferFailed } from 'state/selectors';
 import Notice from 'components/notice';
 import NoticeAction from 'components/notice/notice-action';
 import WpAdminAutoLogin from 'components/wpadmin-auto-login';

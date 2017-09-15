@@ -1,10 +1,9 @@
-import { connect } from 'react-redux';
-import { get } from 'lodash';
-import { localize } from 'i18n-calypso';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import { get } from 'lodash';
+import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
 
 import React from 'react';
@@ -28,7 +27,7 @@ import { getStatsPathForTab } from 'lib/route/path';
 import isDomainOnlySite from 'state/selectors/is-domain-only-site';
 import { domainManagementList } from 'my-sites/domains/paths';
 import { getSite } from 'state/sites/selectors';
-import { getPrimarySiteId } from 'state/selectors';
+import { getPrimarySiteId } from 'state/selectors';
 
 const MasterbarLoggedIn = React.createClass( {
 	propTypes: {

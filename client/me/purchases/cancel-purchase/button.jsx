@@ -1,43 +1,33 @@
-import page from 'page';
-
 /**
- * External Dependencies
+ * External dependencies
  */
+import page from 'page';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
 import { moment } from 'i18n-calypso';
 import { get } from 'lodash';
 import { localize } from 'i18n-calypso';
+import { connect } from 'react-redux';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import config from 'config';
 import Button from 'components/button';
 import { cancelAndRefundPurchase, cancelPurchase, submitSurvey } from 'lib/upgrades/actions';
 import { clearPurchases } from 'state/purchases/actions';
 import { isHappychatAvailable, hasActiveHappychatSession } from 'state/happychat/selectors';
-import { connect } from 'react-redux';
 import Dialog from 'components/dialog';
 import CancelPurchaseForm from 'components/marketing-survey/cancel-purchase-form';
-import enrichedSurveyData
-	from 'components/marketing-survey/cancel-purchase-form/enrichedSurveyData';
-import initialSurveyState
-	from 'components/marketing-survey/cancel-purchase-form/initialSurveyState';
+import enrichedSurveyData from 'components/marketing-survey/cancel-purchase-form/enrichedSurveyData';
+import initialSurveyState from 'components/marketing-survey/cancel-purchase-form/initialSurveyState';
 import isSurveyFilledIn from 'components/marketing-survey/cancel-purchase-form/isSurveyFilledIn';
-import stepsForProductAndSurvey
-	from 'components/marketing-survey/cancel-purchase-form/stepsForProductAndSurvey';
+import stepsForProductAndSurvey from 'components/marketing-survey/cancel-purchase-form/stepsForProductAndSurvey';
 import nextStep from 'components/marketing-survey/cancel-purchase-form/nextStep';
 import previousStep from 'components/marketing-survey/cancel-purchase-form/previousStep';
 import { INITIAL_STEP, FINAL_STEP } from 'components/marketing-survey/cancel-purchase-form/steps';
-import {
-	getName,
-	getSubscriptionEndDate,
-	isOneTimePurchase,
-	isRefundable,
-	isSubscription,
-} from 'lib/purchases';
+import { getName, getSubscriptionEndDate, isOneTimePurchase, isRefundable, isSubscription } from 'lib/purchases';
 import { isDomainRegistration, isJetpackPlan } from 'lib/products-values';
 import notices from 'notices';
 import paths from 'me/purchases/paths';

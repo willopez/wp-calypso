@@ -2,16 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { noop, intersection } from 'lodash';
 import classNames from 'classnames';
 import Gridicon from 'gridicons';
+import i18n from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
-import i18n from 'i18n-calypso';
 import { taxonomiesWelcomeWhitelist, taxonomyToGridicon } from './taxonomies-config.js';
 
 class MagicSearchWelcome extends React.Component {

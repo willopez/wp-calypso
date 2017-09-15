@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import page from 'page';
 import { identity, noop } from 'lodash';
@@ -15,11 +14,7 @@ import classnames from 'classnames';
  * Internal dependencies
  */
 import viewport from 'lib/viewport';
-import {
-	hasUnreadMessages,
-	isHappychatAvailable,
-	hasActiveHappychatSession,
-} from 'state/happychat/selectors';
+import { hasUnreadMessages, isHappychatAvailable, hasActiveHappychatSession } from 'state/happychat/selectors';
 import { connectChat } from 'state/happychat/actions';
 import { openChat } from 'state/ui/happychat/actions';
 import Button from 'components/button';

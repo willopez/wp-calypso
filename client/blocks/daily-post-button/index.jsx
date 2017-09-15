@@ -1,22 +1,21 @@
+/** @format */
+/**
+ * External dependencies
+ */
 import React from 'react';
 import classnames from 'classnames';
 import page from 'page';
-
-/** @format */
-/**
- * External Dependencies
- */
 import PropTypes from 'prop-types';
 
 import qs from 'qs';
 import { get, defer } from 'lodash';
 import Gridicon from 'gridicons';
 import { connect } from 'react-redux';
+import { translate } from 'i18n-calypso';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
-import { translate } from 'i18n-calypso';
 import { preload } from 'sections-preload';
 import SitesPopover from 'components/sites-popover';
 import Button from 'components/button';

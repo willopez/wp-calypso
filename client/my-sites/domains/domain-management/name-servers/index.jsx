@@ -2,12 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import page from 'page';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { localize } from 'i18n-calypso';
+import { isEmpty } from 'lodash';
 
 /**
  * Internal dependencies
@@ -24,7 +24,6 @@ import VerticalNavItem from 'components/vertical-nav/item';
 import * as upgradesActions from 'lib/upgrades/actions';
 import { WPCOM_DEFAULTS, isWpcomDefaults } from 'lib/domains/nameservers';
 import { getSelectedDomain } from 'lib/domains';
-import { isEmpty } from 'lodash';
 import { errorNotice, successNotice } from 'state/notices/actions';
 
 class NameServers extends React.Component {

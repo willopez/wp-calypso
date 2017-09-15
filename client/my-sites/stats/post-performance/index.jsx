@@ -2,12 +2,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { localize } from 'i18n-calypso';
-import { flowRight } from 'lodash';
+import { localize } from 'i18n-calypso';
+import { flowRight } from 'lodash';
 
 /**
  * Internal dependencies
@@ -21,10 +20,7 @@ import Emojify from 'components/emojify';
 import SectionHeader from 'components/section-header';
 import QueryPosts from 'components/data/query-posts';
 import QueryPostStats from 'components/data/query-post-stats';
-import {
-	isRequestingSitePostsForQuery,
-	getSitePostsForQuery
-} from 'state/posts/selectors';
+import { isRequestingSitePostsForQuery, getSitePostsForQuery } from 'state/posts/selectors';
 import { getPostStat } from 'state/stats/posts/selectors';
 import { recordTracksEvent } from 'state/analytics/actions';
 import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';

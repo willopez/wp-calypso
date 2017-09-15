@@ -2,20 +2,20 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import url from 'url';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import { flow, noop } from 'lodash';
+import Gridicon from 'gridicons';
+import photon from 'photon';
 
 /**
  * Internal dependencies
  */
+import url from 'url';
 import CompactCard from 'components/card/compact';
 import Gravatar from 'components/gravatar';
-import Gridicon from 'gridicons';
 import Notice from 'components/notice';
 import NoticeAction from 'components/notice/notice-action';
 import PopoverMenu from 'components/popover/menu';
@@ -23,7 +23,6 @@ import PopoverMenuItem from 'components/popover/menu-item';
 import PostRelativeTimeStatus from 'my-sites/post-relative-time-status';
 import SiteIcon from 'blocks/site-icon';
 import actions from 'lib/posts/actions';
-import photon from 'photon';
 import touchDetect from 'lib/touch-detect';
 import updatePostStatus from 'components/update-post-status';
 import utils from 'lib/posts/utils';

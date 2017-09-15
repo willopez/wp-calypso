@@ -1,35 +1,23 @@
+/**
+ * External dependencies
+ */
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import page from 'page';
-
-/**
- * External Dependencies
- */
 import PropTypes from 'prop-types';
 
 import React from 'react';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Card from 'components/card';
 import CancelPurchaseButton from './button';
 import CancelPurchaseLoadingPlaceholder from 'me/purchases/cancel-purchase/loading-placeholder';
 import CancelPurchaseRefundInformation from './refund-information';
 import CompactCard from 'components/card/compact';
-import {
-	getName,
-	isCancelable,
-	isOneTimePurchase,
-	isRefundable,
-	isSubscription,
-} from 'lib/purchases';
-import {
-	getPurchase,
-	getSelectedSite,
-	goToManagePurchase,
-	recordPageView,
-} from 'me/purchases/utils';
+import { getName, isCancelable, isOneTimePurchase, isRefundable, isSubscription } from 'lib/purchases';
+import { getPurchase, getSelectedSite, goToManagePurchase, recordPageView } from 'me/purchases/utils';
 import { getByPurchaseId, hasLoadedUserPurchasesFromServer } from 'state/purchases/selectors';
 import { getSelectedSite as getSelectedSiteSelector } from 'state/ui/selectors';
 import HeaderCake from 'components/header-cake';

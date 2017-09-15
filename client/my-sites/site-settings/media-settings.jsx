@@ -2,17 +2,16 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
+import filesize from 'filesize';
 
 /**
  * Internal dependencies
  */
 import Banner from 'components/banner';
 import Card from 'components/card';
-import filesize from 'filesize';
 import JetpackModuleToggle from 'my-sites/site-settings/jetpack-module-toggle';
 import FormFieldset from 'components/forms/form-fieldset';
 import FormSelect from 'components/forms/form-select';
@@ -20,27 +19,12 @@ import FormLabel from 'components/forms/form-label';
 import CompactFormToggle from 'components/forms/form-toggle/compact';
 import InfoPopover from 'components/info-popover';
 import ExternalLink from 'components/external-link';
-import {
-	PLAN_JETPACK_PREMIUM,
-	FEATURE_VIDEO_UPLOADS,
-	FEATURE_VIDEO_UPLOADS_JETPACK_PREMIUM,
-	FEATURE_VIDEO_UPLOADS_JETPACK_PRO,
-} from 'lib/plans/constants';
+import { PLAN_JETPACK_PREMIUM, FEATURE_VIDEO_UPLOADS, FEATURE_VIDEO_UPLOADS_JETPACK_PREMIUM, FEATURE_VIDEO_UPLOADS_JETPACK_PRO } from 'lib/plans/constants';
 import { hasFeature } from 'state/sites/plans/selectors';
-import {
-	isJetpackModuleActive,
-	isJetpackModuleUnavailableInDevelopmentMode,
-	isJetpackSiteInDevelopmentMode
-} from 'state/selectors';
+import { isJetpackModuleActive, isJetpackModuleUnavailableInDevelopmentMode, isJetpackSiteInDevelopmentMode } from 'state/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	getMediaStorageLimit,
-	getMediaStorageUsed,
-} from 'state/selectors';
-import {
-	getSitePlanSlug,
-	getSiteSlug,
-} from 'state/sites/selectors';
+import { getMediaStorageLimit, getMediaStorageUsed } from 'state/selectors';
+import { getSitePlanSlug, getSiteSlug } from 'state/sites/selectors';
 import { updateSettings } from 'state/jetpack/settings/actions';
 import QueryMediaStorage from 'components/data/query-media-storage';
 import QueryJetpackConnection from 'components/data/query-jetpack-connection';

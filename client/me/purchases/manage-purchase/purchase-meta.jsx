@@ -2,29 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import { times } from 'lodash';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
-import {
-	getName,
-	creditCardExpiresBeforeSubscription,
-	isExpired,
-	isExpiring,
-	isIncludedWithPlan,
-	isOneTimePurchase,
-	isPaidWithCreditCard,
-	isPaidWithPayPalDirect,
-	isRenewing,
-	isSubscription,
-	hasPaymentMethod,
-	paymentLogoType,
-} from 'lib/purchases';
+import { getName, creditCardExpiresBeforeSubscription, isExpired, isExpiring, isIncludedWithPlan, isOneTimePurchase, isPaidWithCreditCard, isPaidWithPayPalDirect, isRenewing, isSubscription, hasPaymentMethod, paymentLogoType } from 'lib/purchases';
 import { isMonthly } from 'lib/plans/constants';
 import { isDomainRegistration } from 'lib/products-values';
 import { getByPurchaseId, hasLoadedUserPurchasesFromServer } from 'state/purchases/selectors';
@@ -35,13 +21,7 @@ import paths from '../paths';
 import PaymentLogo from 'components/payment-logo';
 import support from 'lib/url/support';
 import UserItem from 'components/user';
-import {
-	canEditPaymentDetails,
-	isDataLoading,
-	getEditCardDetailsPath,
-	getPurchase,
-	getSelectedSite,
-} from '../utils';
+import { canEditPaymentDetails, isDataLoading, getEditCardDetailsPath, getPurchase, getSelectedSite } from '../utils';
 
 class PurchaseMeta extends Component {
 	static propTypes = {

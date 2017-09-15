@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { PureComponent } from 'react';
 import { map, range, flatten, max, keys, zipObject, times, size, concat, merge } from 'lodash';
 import { localize } from 'i18n-calypso';

@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classNames from 'classnames';
 import Gridicon from 'gridicons';
@@ -10,7 +9,6 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
-
 import { isOutsideCalypso } from 'lib/url';
 
 export default React.createClass( {

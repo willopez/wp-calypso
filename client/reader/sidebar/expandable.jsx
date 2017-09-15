@@ -1,14 +1,13 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classNames from 'classnames';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import SidebarMenu from 'layout/sidebar/menu';
 import ExpandableSidebarHeading from './expandable-heading';

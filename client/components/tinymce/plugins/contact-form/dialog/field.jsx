@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import { omit } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import FieldHeader from './field-header';
 import FoldableCard from 'components/foldable-card';
 import FormFieldset from 'components/forms/form-fieldset';

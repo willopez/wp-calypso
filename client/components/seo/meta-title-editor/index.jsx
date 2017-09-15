@@ -2,19 +2,14 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import {
-	get,
-	identity,
-	noop,
-} from 'lodash';
+import { get, identity, noop } from 'lodash';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
 import TitleFormatEditor from 'components/title-format-editor';
-import { localize } from 'i18n-calypso';
 
 const titleTypes = translate => [
 	{ value: 'frontPage', label: translate( 'Front Page' ) },

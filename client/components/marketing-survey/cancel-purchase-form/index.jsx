@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { shuffle } from 'lodash';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import FormFieldset from 'components/forms/form-fieldset';
 import FormLegend from 'components/forms/form-legend';

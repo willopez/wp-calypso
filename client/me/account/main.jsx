@@ -2,19 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import i18n, { localize } from 'i18n-calypso';
 import debugFactory from 'debug';
 import emailValidator from 'email-validator';
-import {
-	debounce,
-	flowRight as compose,
-	map,
-	size,
-	update,
-} from 'lodash';
+import { debounce, flowRight as compose, map, size, update } from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -50,7 +43,6 @@ import ColorSchemePicker from 'blocks/color-scheme-picker';
 import { successNotice, errorNotice } from 'state/notices/actions';
 import { getLanguage } from 'lib/i18n-utils';
 import { isRequestingMissingSites } from 'state/selectors';
-
 import _user from 'lib/user';
 
 const user = _user();

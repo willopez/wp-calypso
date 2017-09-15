@@ -1,8 +1,7 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import Gridicon from 'gridicons';
 

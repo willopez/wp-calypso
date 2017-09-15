@@ -2,39 +2,22 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
-import List from 'react-virtualized/List';
-import AutoSizer from 'react-virtualized/AutoSizer';
-import {
-	debounce,
-	memoize,
-	get,
-	map,
-	reduce,
-	filter,
-	range,
-	difference,
-	isEqual,
-	includes
-} from 'lodash';
+import { debounce, memoize, get, map, reduce, filter, range, difference, isEqual, includes } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
+import List from 'react-virtualized/List';
+import AutoSizer from 'react-virtualized/AutoSizer';
 import NoResults from './no-results';
 import analytics from 'lib/analytics';
 import Search from './search';
 import { decodeEntities } from 'lib/formatting';
-import {
-	getSitePostsForQueryIgnoringPage,
-	isRequestingSitePostsForQueryIgnoringPage,
-	getSitePostsFoundForQuery,
-	getSitePostsLastPageForQuery
-} from 'state/posts/selectors';
+import { getSitePostsForQueryIgnoringPage, isRequestingSitePostsForQueryIgnoringPage, getSitePostsFoundForQuery, getSitePostsLastPageForQuery } from 'state/posts/selectors';
 import { getPostTypes } from 'state/post-types/selectors';
 import { isJetpackSite, isJetpackMinimumVersion } from 'state/sites/selectors';
 import QueryPostTypes from 'components/data/query-post-types';

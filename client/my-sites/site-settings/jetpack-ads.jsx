@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
@@ -23,10 +22,7 @@ import SectionHeader from 'components/section-header';
 import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
 import { hasFeature } from 'state/sites/plans/selectors';
 import { isJetpackModuleActive } from 'state/selectors';
-import {
-	FEATURE_WORDADS_INSTANT,
-	PLAN_JETPACK_PREMIUM
-} from 'lib/plans/constants';
+import { FEATURE_WORDADS_INSTANT, PLAN_JETPACK_PREMIUM } from 'lib/plans/constants';
 
 class JetpackAds extends Component {
 	static defaultProps = {

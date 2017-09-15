@@ -1,10 +1,9 @@
-import classNames from 'classnames';
-import debugFactory from 'debug';
-import { localize } from 'i18n-calypso';
-
 /**
  * External dependencies
  */
+import classNames from 'classnames';
+import debugFactory from 'debug';
+import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
@@ -36,22 +35,8 @@ import { getCurrentUser } from 'state/current-user/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getCurrentLayoutFocus } from 'state/ui/layout-focus/selectors';
 import { setNextLayoutFocus, setLayoutFocus } from 'state/ui/layout-focus/actions';
-import {
-	canCurrentUser,
-	canCurrentUserManagePlugins,
-	getPrimarySiteId,
-	hasJetpackSites,
-	isDomainOnlySite,
-	isSiteAutomatedTransfer
-} from 'state/selectors';
-import {
-	getCustomizerUrl,
-	getSite,
-	isJetpackMinimumVersion,
-	isJetpackModuleActive,
-	isJetpackSite,
-	isSitePreviewable
-} from 'state/sites/selectors';
+import { canCurrentUser, canCurrentUserManagePlugins, getPrimarySiteId, hasJetpackSites, isDomainOnlySite, isSiteAutomatedTransfer } from 'state/selectors';
+import { getCustomizerUrl, getSite, isJetpackMinimumVersion, isJetpackModuleActive, isJetpackSite, isSitePreviewable } from 'state/sites/selectors';
 import { getStatsPathForTab } from 'lib/route/path';
 import { abtest } from 'lib/abtest';
 

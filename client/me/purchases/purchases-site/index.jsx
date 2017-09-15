@@ -1,9 +1,8 @@
-import { connect } from 'react-redux';
-import classNames from 'classnames';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import React from 'react';

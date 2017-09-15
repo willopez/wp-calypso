@@ -1,8 +1,7 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import _debug from 'debug';
 import moment from 'moment';
@@ -11,7 +10,7 @@ import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { recordTracksEvent } from 'state/analytics/actions';
 import Notice from 'components/notice';

@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { moment } from 'i18n-calypso';
 
@@ -14,10 +13,6 @@ import DatePicker from 'components/date-picker';
 import QuerySiteSettings from 'components/data/query-site-settings';
 import User from 'lib/user';
 import EventsTooltip from 'components/date-picker/events-tooltip';
-
-/**
- * Local dependencies
- */
 import Clock from './clock';
 import Header from './header';
 import utils from './utils';

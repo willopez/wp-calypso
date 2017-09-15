@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -15,10 +14,7 @@ import Popover from 'components/popover';
 import Count from 'components/count';
 import { getMyPostCounts } from 'state/posts/counts/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	getSitePostsForQueryIgnoringPage,
-	isRequestingSitePostsForQuery
-} from 'state/posts/selectors';
+import { getSitePostsForQueryIgnoringPage, isRequestingSitePostsForQuery } from 'state/posts/selectors';
 import Draft from 'my-sites/draft';
 import QueryPosts from 'components/data/query-posts';
 import QueryPostCounts from 'components/data/query-post-counts';

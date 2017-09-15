@@ -1,15 +1,14 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import page from 'page';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Button from 'components/button';
 import FormFieldset from 'components/forms/form-fieldset';
@@ -19,12 +18,7 @@ import { isMonthly } from 'lib/plans/constants';
 import { getYearlyPlanByMonthly } from 'lib/plans';
 import { planItem } from 'lib/cart-values/cart-items';
 import { addItem } from 'lib/upgrades/actions';
-import {
-	isExpired,
-	isExpiring,
-	isRenewing,
-	showCreditCardExpiringWarning,
-} from 'lib/purchases';
+import { isExpired, isExpiring, isRenewing, showCreditCardExpiringWarning } from 'lib/purchases';
 import { recordTracksEvent } from 'state/analytics/actions';
 
 class PlanBillingPeriod extends Component {

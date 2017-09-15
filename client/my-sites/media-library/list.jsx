@@ -2,10 +2,16 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import { translate } from 'i18n-calypso';
 import { clone, filter, findIndex, noop } from 'lodash';
+
+/**
+ * Internal dependencies
+ */
+import ListPlanUpgradeNudge from './list-plan-upgrade-nudge';
+import { getPreference } from 'state/preferences/selectors';
+
 const ReactDom = require( 'react-dom' ),
 	React = require( 'react' );
 
@@ -19,9 +25,6 @@ var MediaActions = require( 'lib/media/actions' ),
 	ListNoContent = require( './list-no-content' ),
 	InfiniteList = require( 'components/infinite-list' ),
 	user = require( 'lib/user' )();
-
-import ListPlanUpgradeNudge from './list-plan-upgrade-nudge';
-import { getPreference } from 'state/preferences/selectors';
 
 const GOOGLE_MAX_RESULTS = 1000;
 

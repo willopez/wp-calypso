@@ -1,16 +1,15 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
 import { find } from 'lodash';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Stream from 'reader/stream';
 import DocumentHead from 'components/data/document-head';

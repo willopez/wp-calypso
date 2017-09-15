@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
@@ -10,10 +9,7 @@ import { isEmpty } from 'lodash';
 /**
  * Internal dependencies
  */
-import {
-	getContactDetailsCache,
-	isRequestingContactDetailsCache,
-} from 'state/selectors';
+import { getContactDetailsCache, isRequestingContactDetailsCache } from 'state/selectors';
 import { requestContactDetailsCache } from 'state/domains/management/actions';
 
 class QueryContactDetailsCache extends Component {

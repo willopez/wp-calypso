@@ -1,23 +1,18 @@
+/**
+ * External dependencies
+ */
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
-
-/**
- * External Dependencies
- */
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import CompactCard from 'components/card';
 import EmptyContent from 'components/empty-content';
-import {
-	getUserPurchases,
-	hasLoadedUserPurchasesFromServer,
-	isFetchingUserPurchases,
-} from 'state/purchases/selectors';
+import { getUserPurchases, hasLoadedUserPurchasesFromServer, isFetchingUserPurchases } from 'state/purchases/selectors';
 import { getSites } from 'state/selectors';
 import { getPurchasesBySite } from 'lib/purchases';
 import Main from 'components/main';

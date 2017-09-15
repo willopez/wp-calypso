@@ -2,12 +2,11 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classNames from 'classnames';
 import { isEmpty, isEqual, noop } from 'lodash';
 import Gridicon from 'gridicons';
-import { localize } from 'i18n-calypso';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies

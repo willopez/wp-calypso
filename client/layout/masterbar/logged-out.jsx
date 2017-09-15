@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import Masterbar from './masterbar';
 import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
+import Masterbar from './masterbar';
 import Item from './item';
 import config from 'config';
 import { login } from 'lib/paths';

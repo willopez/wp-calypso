@@ -2,11 +2,10 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import { localize } from 'i18n-calypso';
+import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
-import { findIndex, findLastIndex, flatten, flowRight, get, range } from 'lodash';
+import { findIndex, findLastIndex, flatten, flowRight, get, range } from 'lodash';
 
 /**
  * Internal dependencies

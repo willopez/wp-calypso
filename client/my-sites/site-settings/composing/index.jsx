@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -15,11 +14,7 @@ import CompactCard from 'components/card/compact';
 import DateTimeFormat from '../date-time-format';
 import DefaultPostFormat from './default-post-format';
 import PublishConfirmation from './publish-confirmation';
-import {
-	isJetpackMinimumVersion,
-	isJetpackSite,
-	siteSupportsJetpackSettingsUi,
-} from 'state/sites/selectors';
+import { isJetpackMinimumVersion, isJetpackSite, siteSupportsJetpackSettingsUi } from 'state/sites/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 
 const Composing = ( {

@@ -2,11 +2,10 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { localize } from 'i18n-calypso';
+import { localize } from 'i18n-calypso';
 import { includes } from 'lodash';
 
 /**
@@ -26,10 +25,7 @@ import UpgradeNudge from 'my-sites/upgrade-nudge';
 import AllTimeNav from './all-time-nav';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getSiteSlug } from 'state/sites/selectors';
-import {
-	isRequestingSiteStatsForQuery,
-	getSiteStatsNormalizedData
-} from 'state/stats/lists/selectors';
+import { isRequestingSiteStatsForQuery, getSiteStatsNormalizedData } from 'state/stats/lists/selectors';
 
 class StatsModule extends Component {
 	static propTypes = {

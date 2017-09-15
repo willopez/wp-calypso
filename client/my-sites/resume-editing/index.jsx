@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
@@ -13,11 +12,7 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import { resetEditorLastDraft } from 'state/ui/editor/last-draft/actions';
-import {
-	getEditorLastDraftPost,
-	getEditorLastDraftSiteId,
-	getEditorLastDraftPostId
-} from 'state/ui/editor/last-draft/selectors';
+import { getEditorLastDraftPost, getEditorLastDraftSiteId, getEditorLastDraftPostId } from 'state/ui/editor/last-draft/selectors';
 import { isRequestingSitePost } from 'state/posts/selectors';
 import { getEditorPath } from 'state/ui/editor/selectors';
 import { getSectionName } from 'state/ui/selectors';

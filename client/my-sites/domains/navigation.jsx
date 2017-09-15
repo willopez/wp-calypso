@@ -2,15 +2,14 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import Dispatcher from 'dispatcher';
 import { get } from 'lodash';
 import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
+import Dispatcher from 'dispatcher';
 import config from 'config';
 import { sectionify } from 'lib/route/path';
 import SectionNav from 'components/section-nav';

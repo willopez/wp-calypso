@@ -2,16 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 
-import {
-	firstValid,
-	hardTruncation,
-	shortEnough,
-	truncatedAtSpace
-} from '../helpers';
+/**
+ * Internal dependencies
+ */
+import PureRenderMixin from 'react-pure-render/mixin';
+import { firstValid, hardTruncation, shortEnough, truncatedAtSpace } from '../helpers';
 
 const TITLE_LENGTH = 63;
 const SNIPPET_LENGTH = 160;

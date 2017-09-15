@@ -1,9 +1,8 @@
-import { connect } from 'react-redux';
-import page from 'page';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import page from 'page';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';

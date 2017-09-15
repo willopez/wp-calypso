@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { omit } from 'lodash';
 import classNames from 'classnames';
@@ -12,10 +11,6 @@ import classNames from 'classnames';
  */
 import ShortcodesStore from 'lib/shortcodes/store';
 import * as ShortcodesActions from 'lib/shortcodes/actions';
-
-/**
- * Local dependencies
- */
 import ShortcodeData from './data';
 import ShortcodeFrame from './frame';
 

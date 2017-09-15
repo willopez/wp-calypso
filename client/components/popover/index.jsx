@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { connect } from 'react-redux';
@@ -15,14 +14,7 @@ import { uniqueId } from 'lodash';
  * Internal dependencies
  */
 import RootChild from 'components/root-child';
-import {
-	bindWindowListeners,
-	unbindWindowListeners,
-	suggested as suggestPosition,
-	constrainLeft,
-	isElement as isDOMElement,
-	offset
-} from './util';
+import { bindWindowListeners, unbindWindowListeners, suggested as suggestPosition, constrainLeft, isElement as isDOMElement, offset } from './util';
 import { isRtl as isRtlSelector } from 'state/selectors';
 
 /**

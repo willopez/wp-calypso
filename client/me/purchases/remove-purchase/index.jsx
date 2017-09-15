@@ -1,15 +1,15 @@
-import { connect } from 'react-redux';
-import page from 'page';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import page from 'page';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
 import Gridicon from 'gridicons';
 import { localize, moment } from 'i18n-calypso';
 import { get } from 'lodash';
+import debugFactory from 'debug';
 
 /**
  * Internal dependencies
@@ -19,13 +19,10 @@ import config from 'config';
 import CompactCard from 'components/card/compact';
 import Dialog from 'components/dialog';
 import CancelPurchaseForm from 'components/marketing-survey/cancel-purchase-form';
-import enrichedSurveyData
-	from 'components/marketing-survey/cancel-purchase-form/enrichedSurveyData';
-import initialSurveyState
-	from 'components/marketing-survey/cancel-purchase-form/initialSurveyState';
+import enrichedSurveyData from 'components/marketing-survey/cancel-purchase-form/enrichedSurveyData';
+import initialSurveyState from 'components/marketing-survey/cancel-purchase-form/initialSurveyState';
 import isSurveyFilledIn from 'components/marketing-survey/cancel-purchase-form/isSurveyFilledIn';
-import stepsForProductAndSurvey
-	from 'components/marketing-survey/cancel-purchase-form/stepsForProductAndSurvey';
+import stepsForProductAndSurvey from 'components/marketing-survey/cancel-purchase-form/stepsForProductAndSurvey';
 import nextStep from 'components/marketing-survey/cancel-purchase-form/nextStep';
 import previousStep from 'components/marketing-survey/cancel-purchase-form/previousStep';
 import { INITIAL_STEP, FINAL_STEP } from 'components/marketing-survey/cancel-purchase-form/steps';
@@ -48,10 +45,6 @@ import HappychatButton from 'components/happychat/button';
 
 const user = userFactory();
 
-/**
- * Module dependencies
- */
-import debugFactory from 'debug';
 const debug = debugFactory( 'calypso:purchases:survey' );
 
 class RemovePurchase extends Component {

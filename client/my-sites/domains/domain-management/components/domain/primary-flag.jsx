@@ -1,18 +1,17 @@
-import { connect } from 'react-redux';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
+import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { isDomainOnlySite } from 'state/selectors';
-import { localize } from 'i18n-calypso';
 import Notice from 'components/notice';
 
 class DomainPrimaryFlag extends Component {

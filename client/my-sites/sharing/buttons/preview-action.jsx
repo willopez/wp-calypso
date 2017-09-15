@@ -2,14 +2,9 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import classNames from 'classnames';
 import { omit, startsWith, endsWith } from 'lodash';
-
-/**
- * Internal dependencies
- */
 import Gridicon from 'gridicons';
 
 const SharingButtonsPreviewAction = ( props ) => {

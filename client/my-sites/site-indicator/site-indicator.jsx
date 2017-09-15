@@ -2,17 +2,16 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
-import config from 'config';
 import classNames from 'classnames';
 import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
  */
+import config from 'config';
 import Animate from 'components/animate';
 import ProgressIndicator from 'components/progress-indicator';
 import DisconnectJetpackButton from 'my-sites/plugins/disconnect-jetpack/disconnect-jetpack-button';
@@ -22,12 +21,7 @@ import { canCurrentUser } from 'state/selectors';
 import { isJetpackSite } from 'state/sites/selectors';
 import { getUpdatesBySiteId } from 'state/sites/updates/selectors';
 import { updateWordPress } from 'state/sites/updates/actions';
-import {
-	getSiteConnectionStatus,
-	isRequestingSiteConnectionStatus,
-	isSiteAutomatedTransfer,
-	isWordpressUpdateSuccessful,
-} from 'state/selectors';
+import { getSiteConnectionStatus, isRequestingSiteConnectionStatus, isSiteAutomatedTransfer, isWordpressUpdateSuccessful } from 'state/selectors';
 
 class SiteIndicator extends Component {
 	static propTypes = {

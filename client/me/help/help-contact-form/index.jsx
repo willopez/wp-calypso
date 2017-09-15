@@ -2,10 +2,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
-import PureRenderMixin from 'react-pure-render/mixin';
 import { debounce, isEqual, find } from 'lodash';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -13,6 +11,7 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import analytics from 'lib/analytics';
 import config from 'config';
 import FormLabel from 'components/forms/form-label';
@@ -30,11 +29,7 @@ import { selectSiteId } from 'state/help/actions';
 import { getHelpSelectedSite } from 'state/help/selectors';
 import wpcomLib from 'lib/wp';
 import HelpResults from 'me/help/help-results';
-import {
-	bumpStat,
-	recordTracksEvent,
-	composeAnalytics,
-} from 'state/analytics/actions';
+import { bumpStat, recordTracksEvent, composeAnalytics } from 'state/analytics/actions';
 
 /**
  * Module variables

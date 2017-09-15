@@ -2,26 +2,10 @@
  * External dependencies
  */
 import { assign, forEach } from 'lodash';
-const PropTypes = require('prop-types');
-const ReactDom = require( 'react-dom' ),
-	React = require( 'react' ),
-	classnames = require( 'classnames' ),
-	autosize = require( 'autosize' ),
-	tinymce = require( 'tinymce/tinymce' );
 
-require( 'tinymce/themes/modern/theme.js' );
-
-// TinyMCE plugins
-require( 'tinymce/plugins/colorpicker/plugin.js' );
-require( 'tinymce/plugins/directionality/plugin.js' );
-require( 'tinymce/plugins/hr/plugin.js' );
-require( 'tinymce/plugins/lists/plugin.js' );
-require( 'tinymce/plugins/media/plugin.js' );
-require( 'tinymce/plugins/paste/plugin.js' );
-require( 'tinymce/plugins/tabfocus/plugin.js' );
-require( 'tinymce/plugins/textcolor/plugin.js' );
-
-// TinyMCE plugins that we've forked or written ourselves
+/**
+ * Internal dependencies
+ */
 import wpcomPlugin from './plugins/wpcom/plugin.js';
 import wpcomAutoresizePlugin from './plugins/wpcom-autoresize/plugin.js';
 import wpcomHelpPlugin from './plugins/wpcom-help/plugin.js';
@@ -48,6 +32,26 @@ import EditorHtmlToolbar from 'post-editor/editor-html-toolbar';
 import mentionsPlugin from './plugins/mentions/plugin';
 import markdownPlugin from './plugins/markdown/plugin';
 import wpEmojiPlugin from './plugins/wpemoji/plugin';
+import { decodeEntities, wpautop, removep } from 'lib/formatting';
+
+const PropTypes = require('prop-types');
+const ReactDom = require( 'react-dom' ),
+	React = require( 'react' ),
+	classnames = require( 'classnames' ),
+	autosize = require( 'autosize' ),
+	tinymce = require( 'tinymce/tinymce' );
+
+require( 'tinymce/themes/modern/theme.js' );
+
+// TinyMCE plugins
+require( 'tinymce/plugins/colorpicker/plugin.js' );
+require( 'tinymce/plugins/directionality/plugin.js' );
+require( 'tinymce/plugins/hr/plugin.js' );
+require( 'tinymce/plugins/lists/plugin.js' );
+require( 'tinymce/plugins/media/plugin.js' );
+require( 'tinymce/plugins/paste/plugin.js' );
+require( 'tinymce/plugins/tabfocus/plugin.js' );
+require( 'tinymce/plugins/textcolor/plugin.js' );
 
 [
 	wpcomPlugin,
@@ -83,7 +87,6 @@ const user = require( 'lib/user' )(),
 	i18n = require( './i18n' ),
 	viewport = require( 'lib/viewport' ),
 	config = require( 'config' );
-import { decodeEntities, wpautop, removep } from 'lib/formatting';
 
 /**
  * Internal Variables

@@ -1,22 +1,20 @@
-import React from 'react';
-import { localize } from 'i18n-calypso';
-import url from 'url';
-
 /**
  * External dependencies
  */
+import React from 'react';
+import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
-
 import Qs from 'qs';
 import { cloneDeep, get, startsWith } from 'lodash';
 import { connect } from 'react-redux';
 import debugFactory from 'debug';
+import page from 'page';
 
 /**
  * Internal dependencies
  */
+import url from 'url';
 import notices from 'notices';
-import page from 'page';
 import CustomizerLoadingPanel from 'my-sites/customize/loading-panel';
 import EmptyContent from 'components/empty-content';
 import SidebarNavigation from 'my-sites/sidebar-navigation';

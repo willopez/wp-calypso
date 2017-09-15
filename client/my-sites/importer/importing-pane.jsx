@@ -2,9 +2,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import classNames from 'classnames';
 import { numberFormat, translate } from 'i18n-calypso';
 import { has, omit } from 'lodash';
@@ -12,6 +10,7 @@ import { has, omit } from 'lodash';
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import { mapAuthor, startImporting } from 'lib/importer/actions';
 import { appStates } from 'state/imports/constants';
 import { connectDispatcher } from './dispatcher-converter';

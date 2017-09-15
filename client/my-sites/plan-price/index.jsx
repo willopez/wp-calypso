@@ -2,13 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
 /**
- * Internal Dependencies
- **/
+ * Internal dependencies
+ */
 import { getCurrencyObject } from 'lib/format-currency';
 
 export default class PlanPrice extends Component {

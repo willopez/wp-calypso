@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { map, reduce, noop, compact } from 'lodash';
@@ -21,31 +20,10 @@ import { getSignupDependencyStore } from 'state/signup/dependency-store/selector
 import { isCurrentUserCurrentPlanOwner, getPlansBySiteId } from 'state/sites/plans/selectors';
 import { getCurrentUserCurrencyCode } from 'state/current-user/selectors';
 import { getPlanDiscountedRawPrice } from 'state/sites/plans/selectors';
-import {
-	getPlanRawPrice,
-	getPlan,
-	getPlanSlug,
-	getPlanBySlug
-} from 'state/plans/selectors';
-import {
-	isPopular,
-	isNew,
-	isMonthly,
-	getPlanFeaturesObject,
-	getPlanClass,
-	PLAN_PERSONAL,
-	PLAN_PREMIUM,
-	PLAN_BUSINESS,
-} from 'lib/plans/constants';
-import {
-	getMonthlyPlanByYearly,
-	isFreePlan,
-} from 'lib/plans';
-import {
-	getPlanPath,
-	canUpgradeToPlan,
-	applyTestFiltersToPlansList
-} from 'lib/plans';
+import { getPlanRawPrice, getPlan, getPlanSlug, getPlanBySlug } from 'state/plans/selectors';
+import { isPopular, isNew, isMonthly, getPlanFeaturesObject, getPlanClass, PLAN_PERSONAL, PLAN_PREMIUM, PLAN_BUSINESS } from 'lib/plans/constants';
+import { getMonthlyPlanByYearly, isFreePlan } from 'lib/plans';
+import { getPlanPath, canUpgradeToPlan, applyTestFiltersToPlansList } from 'lib/plans';
 import { planItem as getCartItemForPlan } from 'lib/cart-values/cart-items';
 import Notice from 'components/notice';
 import SpinnerLine from 'components/spinner-line';

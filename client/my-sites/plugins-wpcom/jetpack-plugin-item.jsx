@@ -2,13 +2,9 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { localize } from 'i18n-calypso';
-import {
-	identity,
-	includes,
-} from 'lodash';
+import { identity, includes } from 'lodash';
 
 /**
  * Internal dependencies

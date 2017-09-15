@@ -1,15 +1,14 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { noop, values } from 'lodash';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import NavTabs from 'components/section-nav/tabs';
 import SectionNav from 'components/section-nav';

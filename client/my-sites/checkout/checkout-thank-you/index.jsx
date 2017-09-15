@@ -1,10 +1,9 @@
-import { connect } from 'react-redux';
-import { find } from 'lodash';
-import page from 'page';
-
 /**
  * External dependencies
  */
+import { connect } from 'react-redux';
+import { find } from 'lodash';
+import page from 'page';
 import PropTypes from 'prop-types';
 
 import React from 'react';
@@ -34,23 +33,7 @@ import HappinessSupport from 'components/happiness-support';
 import HeaderCake from 'components/header-cake';
 import PlanThankYouCard from 'blocks/plan-thank-you-card';
 import JetpackThankYouCard from './jetpack-thank-you-card';
-import {
-	isChargeback,
-	isDomainMapping,
-	isDomainProduct,
-	isDomainRedemption,
-	isDomainRegistration,
-	isDotComPlan,
-	isGoogleApps,
-	isGuidedTransfer,
-	isJetpackPlan,
-	isPlan,
-	isPersonal,
-	isPremium,
-	isBusiness,
-	isSiteRedirect,
-	isTheme
-} from 'lib/products-values';
+import { isChargeback, isDomainMapping, isDomainProduct, isDomainRedemption, isDomainRegistration, isDotComPlan, isGoogleApps, isGuidedTransfer, isJetpackPlan, isPlan, isPersonal, isPremium, isBusiness, isSiteRedirect, isTheme } from 'lib/products-values';
 import JetpackPlanDetails from './jetpack-plan-details';
 import Main from 'components/main';
 import PersonalPlanDetails from './personal-plan-details';
@@ -68,11 +51,7 @@ import config from 'config';
 import { getSitePlanSlug } from 'state/sites/plans/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { isRebrandCitiesSiteUrl } from 'lib/rebrand-cities';
-import {
-	PLAN_BUSINESS,
-	PLAN_JETPACK_BUSINESS,
-	PLAN_JETPACK_BUSINESS_MONTHLY,
-} from 'lib/plans/constants';
+import { PLAN_BUSINESS, PLAN_JETPACK_BUSINESS, PLAN_JETPACK_BUSINESS_MONTHLY } from 'lib/plans/constants';
 
 function getPurchases( props ) {
 	return ( props.receipt.data && props.receipt.data.purchases ) || [];

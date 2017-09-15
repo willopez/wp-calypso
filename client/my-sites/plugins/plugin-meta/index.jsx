@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
@@ -33,14 +32,11 @@ import PluginRemoveButton from 'my-sites/plugins/plugin-remove-button';
 import PluginInformation from 'my-sites/plugins/plugin-information';
 import WpcomPluginInstallButton from 'my-sites/plugins-wpcom/plugin-install-button';
 import PluginAutomatedTransfer from 'my-sites/plugins/plugin-automated-transfer';
-import { getExtensionSettingsPath } from 'my-sites/plugins/utils';
+import { getExtensionSettingsPath } from 'my-sites/plugins/utils';
 import { userCan } from 'lib/site/utils';
 import Banner from 'components/banner';
 import { PLAN_BUSINESS, FEATURE_UPLOAD_PLUGINS } from 'lib/plans/constants';
-import {
-	isBusiness,
-	isEnterprise
-} from 'lib/products-values';
+import { isBusiness, isEnterprise } from 'lib/products-values';
 import { addSiteFragment } from 'lib/route/path';
 import { getSelectedSiteId, getSelectedSite } from 'state/ui/selectors';
 import { getSiteSlug } from 'state/sites/selectors';

@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import Immutable from 'immutable';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import { NOTIFICATIONS_EXCEPTIONS } from './constants';
 import FormCheckbox from 'components/forms/form-checkbox';
 

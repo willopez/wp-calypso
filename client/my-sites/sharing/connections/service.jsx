@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
@@ -14,25 +13,14 @@ import SocialLogo from 'social-logos';
  * Internal dependencies
  */
 import AccountDialog from './account-dialog';
-import {
-	createSiteConnection,
-	deleteSiteConnection,
-	failCreateConnection,
-	fetchConnection,
-	updateSiteConnection,
-} from 'state/sharing/publicize/actions';
+import { createSiteConnection, deleteSiteConnection, failCreateConnection, fetchConnection, updateSiteConnection } from 'state/sharing/publicize/actions';
 import { successNotice, errorNotice, warningNotice } from 'state/notices/actions';
 import Connection from './connection';
 import FoldableCard from 'components/foldable-card';
 import { getAvailableExternalAccounts } from 'state/sharing/selectors';
 import { getCurrentUserId } from 'state/current-user/selectors';
 import { getKeyringConnectionsByName } from 'state/sharing/keyring/selectors';
-import {
-	getBrokenSiteUserConnectionsForService,
-	getRemovableConnections,
-	getSiteUserConnectionsForService,
-	isFetchingConnections,
-} from 'state/sharing/publicize/selectors';
+import { getBrokenSiteUserConnectionsForService, getRemovableConnections, getSiteUserConnectionsForService, isFetchingConnections } from 'state/sharing/publicize/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { recordGoogleEvent } from 'state/analytics/actions';
 import { requestKeyringConnections } from 'state/sharing/keyring/actions';

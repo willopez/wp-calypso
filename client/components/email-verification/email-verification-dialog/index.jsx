@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { get, includes, noop } from 'lodash';
 import { localize } from 'i18n-calypso';
@@ -15,10 +14,7 @@ import Dialog from 'components/dialog';
 import Button from 'components/button';
 import Spinner from 'components/spinner';
 import { getCurrentUserEmail } from 'state/current-user/selectors';
-import {
-	verifyEmail,
-	resetVerifyEmailState,
-} from 'state/current-user/email-verification/actions';
+import { verifyEmail, resetVerifyEmailState } from 'state/current-user/email-verification/actions';
 
 class VerifyEmailDialog extends Component {
 	getResendButtonLabel() {

@@ -1,10 +1,9 @@
-import debugFactory from 'debug';
-import { omit } from 'lodash';
-import page from 'page';
-
 /**
  * External dependencies
  */
+import debugFactory from 'debug';
+import { omit } from 'lodash';
+import page from 'page';
 import PropTypes from 'prop-types';
 
 import React from 'react';

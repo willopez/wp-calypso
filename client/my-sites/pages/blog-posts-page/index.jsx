@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { identity } from 'lodash';
@@ -14,11 +13,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import Card from 'components/card';
-import {
-	getSiteFrontPageType,
-	getSitePostsPage,
-	getSiteFrontPage,
-} from 'state/sites/selectors';
+import { getSiteFrontPageType, getSitePostsPage, getSiteFrontPage } from 'state/sites/selectors';
 
 class BlogPostsPage extends React.Component {
 

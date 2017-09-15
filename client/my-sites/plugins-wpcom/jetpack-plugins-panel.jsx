@@ -2,17 +2,9 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
-import {
-	find,
-	identity,
-	includes,
-	matchesProperty,
-	overSome,
-	some,
-} from 'lodash';
+import { find, identity, includes, matchesProperty, overSome, some } from 'lodash';
 import Gridicon from 'gridicons';
 
 /**

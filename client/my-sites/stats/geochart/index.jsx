@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { throttle, map, uniq } from 'lodash';
@@ -17,9 +16,7 @@ import { loadScript } from 'lib/load-script';
 import StatsModulePlaceholder from '../stats-module/placeholder';
 import QuerySiteStats from 'components/data/query-site-stats';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import {
-	getSiteStatsNormalizedData
-} from 'state/stats/lists/selectors';
+import { getSiteStatsNormalizedData } from 'state/stats/lists/selectors';
 
 class StatsGeochart extends Component {
 	static propTypes = {

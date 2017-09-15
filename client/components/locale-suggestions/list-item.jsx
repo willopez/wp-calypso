@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { assign } from 'lodash';
 import { getLocaleSlug } from 'i18n-calypso';

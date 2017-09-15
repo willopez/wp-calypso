@@ -2,11 +2,12 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import Gridicon from 'gridicons';
 
-// Internal dependencies
+/**
+ * Internal dependencies
+ */
 import Button from 'components/button';
 import observe from 'lib/mixins/data-observe';
 import eventRecorder from 'me/event-recorder';

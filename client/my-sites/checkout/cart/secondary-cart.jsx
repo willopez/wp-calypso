@@ -2,16 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import ReactDom from 'react-dom';
 import { localize } from 'i18n-calypso';
-import Dispatcher from 'dispatcher';
 import classNames from 'classnames';
 
 /**
  * Internal dependencies
  */
+import Dispatcher from 'dispatcher';
 import CartBody from 'my-sites/checkout/cart/cart-body';
 import CartMessagesMixin from './cart-messages-mixin';
 import CartSummaryBar from 'my-sites/checkout/cart/cart-summary-bar';

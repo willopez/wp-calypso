@@ -3,7 +3,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { localize } from 'i18n-calypso';
 
@@ -13,7 +12,6 @@ import { localize } from 'i18n-calypso';
 import EmptyContent from 'components/empty-content';
 import { isDiscoverEnabled } from 'reader/discover/helper';
 import QueryReaderList from 'components/data/query-reader-list';
-
 import { recordAction, recordGaEvent, recordTrack } from 'reader/stats';
 
 class ListMissing extends React.Component {

@@ -2,16 +2,15 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
 import Gridicon from 'gridicons';
+import titlecase from 'to-title-case';
 
 /**
  * Internal dependencies
  */
+import PureRenderMixin from 'react-pure-render/mixin';
 import analytics from 'lib/analytics';
-import titlecase from 'to-title-case';
 
 export default React.createClass( {
 	displayName: 'StatsInfoPanel',

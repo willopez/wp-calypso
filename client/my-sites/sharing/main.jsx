@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { find, get } from 'lodash';
@@ -13,11 +12,7 @@ import { localize } from 'i18n-calypso';
  */
 import { canCurrentUser, isJetpackModuleActive } from 'state/selectors';
 import DocumentHead from 'components/data/document-head';
-import {
-	getSiteSlug,
-	isJetpackMinimumVersion,
-	isJetpackSite,
-} from 'state/sites/selectors';
+import { getSiteSlug, isJetpackMinimumVersion, isJetpackSite } from 'state/sites/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import Main from 'components/main';
 import NavItem from 'components/section-nav/item';

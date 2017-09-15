@@ -2,14 +2,13 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import { cloneElement, Component } from 'react';
-import { Container } from 'flux/utils';
 import { pick } from 'lodash';
 
 /**
  * Internal dependencies
  */
+import { Container } from 'flux/utils';
 import ShortcodesStore from 'lib/shortcodes/store';
 
 class ShortcodeData extends Component {

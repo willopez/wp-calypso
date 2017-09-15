@@ -2,9 +2,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import notices from 'notices';
 import { localize } from 'i18n-calypso';
 import { flowRight as compose } from 'lodash';
 import { connect } from 'react-redux';
@@ -12,6 +10,7 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
+import notices from 'notices';
 import Card from 'components/card';
 import StateSelector from 'components/forms/us-state-selector';
 import FormButton from 'components/forms/form-button';

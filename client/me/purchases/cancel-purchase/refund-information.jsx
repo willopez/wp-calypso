@@ -1,15 +1,14 @@
-import { connect } from 'react-redux';
-
 /**
- * External Dependencies
+ * External dependencies
  */
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import React from 'react';
 import i18n from 'i18n-calypso';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { getName, isRefundable, isSubscription, isOneTimePurchase } from 'lib/purchases';
 import { isDomainRegistration, isDomainMapping } from 'lib/products-values';

@@ -1,17 +1,17 @@
+/**
+ * External dependencies
+ */
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import page from 'page';
-
-/**
- * External Dependencies
- */
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
+import Gridicon from 'gridicons';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import { abtest } from 'lib/abtest';
 import analytics from 'lib/analytics';
@@ -21,45 +21,13 @@ import Card from 'components/card';
 import { cartItems } from 'lib/cart-values';
 import CompactCard from 'components/card/compact';
 import config from 'config';
-import {
-	getName,
-	hasPrivacyProtection,
-	isCancelable,
-	isExpired,
-	isExpiring,
-	isOneTimePurchase,
-	isRedeemable,
-	isRefundable,
-	isRenewable,
-	isRenewal,
-	isRenewing,
-	isSubscription,
-	purchaseType,
-} from 'lib/purchases';
-import {
-	canEditPaymentDetails,
-	isDataLoading,
-	getEditCardDetailsPath,
-	getPurchase,
-	getSelectedSite,
-	goToList,
-	recordPageView,
-} from '../utils';
+import { getName, hasPrivacyProtection, isCancelable, isExpired, isExpiring, isOneTimePurchase, isRedeemable, isRefundable, isRenewable, isRenewal, isRenewing, isSubscription, purchaseType } from 'lib/purchases';
+import { canEditPaymentDetails, isDataLoading, getEditCardDetailsPath, getPurchase, getSelectedSite, goToList, recordPageView } from '../utils';
 import { getByPurchaseId, hasLoadedUserPurchasesFromServer } from 'state/purchases/selectors';
 import { getCanonicalTheme } from 'state/themes/selectors';
 import { getSelectedSite as getSelectedSiteSelector, getSelectedSiteId } from 'state/ui/selectors';
-import Gridicon from 'gridicons';
 import HeaderCake from 'components/header-cake';
-import {
-	isPersonal,
-	isPremium,
-	isBusiness,
-	isPlan,
-	isDomainProduct,
-	isDomainRegistration,
-	isDomainMapping,
-	isTheme,
-} from 'lib/products-values';
+import { isPersonal, isPremium, isBusiness, isPlan, isDomainProduct, isDomainRegistration, isDomainMapping, isTheme } from 'lib/products-values';
 import { isRequestingSites } from 'state/sites/selectors';
 import Main from 'components/main';
 import PlanIcon from 'components/plans/plan-icon';

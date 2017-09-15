@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,7 +11,6 @@ import { bindActionCreators } from 'redux';
  */
 import { isRequestingMediaStorage } from 'state/sites/media-storage/selectors';
 import { requestMediaStorage } from 'state/sites/media-storage/actions';
-// until we port media over to redux:
 import MediaStore from 'lib/media/store';
 
 class QueryMediaStorage extends Component {

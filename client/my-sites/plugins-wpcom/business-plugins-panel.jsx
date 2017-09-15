@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -16,7 +15,6 @@ import Card from 'components/card';
 import SectionHeader from 'components/section-header';
 import PurchaseButton from './purchase-button';
 import { recordTracksEvent } from 'state/analytics/actions';
-
 import Plugin from './plugin';
 
 export const BusinessPluginsPanel = ( {

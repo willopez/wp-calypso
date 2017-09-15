@@ -2,9 +2,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { compact, includes, isEqual, property, snakeCase } from 'lodash';
 
 /**
@@ -18,15 +17,7 @@ import { recordGoogleEvent, recordTracksEvent } from 'state/analytics/actions';
 import { isJetpackSite } from 'state/sites/selectors';
 import { getCurrentUserId } from 'state/current-user/selectors';
 import { getSiteSlug } from 'state/sites/selectors';
-import {
-	getPremiumThemePrice,
-	getThemesForQueryIgnoringPage,
-	getThemesFoundForQuery,
-	isRequestingThemesForQuery,
-	isThemesLastPageForQuery,
-	isThemeActive,
-	isInstallingTheme
-} from 'state/themes/selectors';
+import { getPremiumThemePrice, getThemesForQueryIgnoringPage, getThemesFoundForQuery, isRequestingThemesForQuery, isThemesLastPageForQuery, isThemeActive, isInstallingTheme } from 'state/themes/selectors';
 import { setThemePreviewOptions } from 'state/themes/actions';
 import config from 'config';
 import { prependThemeFilterKeys } from 'state/selectors';

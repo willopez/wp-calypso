@@ -2,10 +2,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import Gridicon from 'gridicons';
-import addQueryArgs from 'lib/route/add-query-args';
 import debugModule from 'debug';
 import page from 'page';
 import { localize } from 'i18n-calypso';
@@ -13,6 +11,7 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
+import addQueryArgs from 'lib/route/add-query-args';
 import Button from 'components/button';
 import Card from 'components/card';
 import FormLabel from 'components/forms/form-label';

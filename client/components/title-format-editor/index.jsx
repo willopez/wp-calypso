@@ -2,19 +2,19 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import {
-	get,
-	head,
-	map,
-	max,
-	min,
-	noop,
-} from 'lodash';
+import { get, head, map, max, min, noop } from 'lodash';
 import moment from 'moment';
+import { localize } from 'i18n-calypso';
+
+/**
+ * Internal dependencies
+ */
+import Token from './token';
+import { buildSeoTitle } from 'state/sites/selectors';
+import { getSelectedSite } from 'state/ui/selectors';
 
 // The following polyfills exist for the draft-js editor, since
 // we are unable to change its codebase and yet we are waiting
@@ -111,11 +111,6 @@ const {
 	mapTokenTitleForEditor,
 	toEditor,
 } = require( './parser' );
-
-import Token from './token';
-import { buildSeoTitle } from 'state/sites/selectors';
-import { getSelectedSite } from 'state/ui/selectors';
-import { localize } from 'i18n-calypso';
 
 const Chip = onClick => props => <Token { ...props } onClick={ onClick } />;
 

@@ -1,10 +1,9 @@
-import { localize } from 'i18n-calypso';
-import { connect } from 'react-redux';
-import { noop } from 'lodash';
-
 /**
  * External dependencies
  */
+import { localize } from 'i18n-calypso';
+import { connect } from 'react-redux';
+import { noop } from 'lodash';
 import PropTypes from 'prop-types';
 
 import React from 'react';

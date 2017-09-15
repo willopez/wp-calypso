@@ -1,8 +1,7 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import { Component } from 'react';
 import { get } from 'lodash';
 

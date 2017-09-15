@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -14,14 +13,7 @@ import Button from 'components/button';
 import PulsingDot from 'components/pulsing-dot';
 import QueryTheme from 'components/data/query-theme';
 import { connectOptions } from './theme-options';
-import {
-	getThemeDemoUrl,
-	getThemePreviewThemeOptions,
-	themePreviewVisibility,
-	isThemeActive,
-	isInstallingTheme,
-	isActivatingTheme
-} from 'state/themes/selectors';
+import { getThemeDemoUrl, getThemePreviewThemeOptions, themePreviewVisibility, isThemeActive, isInstallingTheme, isActivatingTheme } from 'state/themes/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { isJetpackSite } from 'state/sites/selectors';
 import { hideThemePreview } from 'state/themes/actions';

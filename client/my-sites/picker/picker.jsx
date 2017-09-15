@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import wrapWithClickOutside from 'react-click-outside';
 import { noop } from 'lodash';

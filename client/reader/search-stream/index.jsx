@@ -1,9 +1,8 @@
 /** @format */
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { trim, initial, flatMap } from 'lodash';
@@ -12,7 +11,7 @@ import page from 'page';
 import classnames from 'classnames';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import ControlItem from 'components/segmented-control/item';
 import SegmentedControl from 'components/segmented-control';

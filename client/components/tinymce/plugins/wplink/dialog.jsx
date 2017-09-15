@@ -2,9 +2,7 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import tinymce from 'tinymce/tinymce';
 import { connect } from 'react-redux';
 import { find } from 'lodash';
 import Gridicon from 'gridicons';
@@ -12,6 +10,7 @@ import Gridicon from 'gridicons';
 /**
  * Internal dependencies
  */
+import tinymce from 'tinymce/tinymce';
 import * as MediaSerialization from 'lib/media-serialization';
 import MediaStore from 'lib/media/store';
 import MediaUtils from 'lib/media/utils';

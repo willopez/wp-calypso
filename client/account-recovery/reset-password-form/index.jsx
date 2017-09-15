@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -16,18 +15,9 @@ import FormFieldset from 'components/forms/form-fieldset';
 import FormLegend from 'components/forms/form-legend';
 import ResetOptionSet from './reset-option-set';
 import ErrorMessage from 'account-recovery/components/account-recovery-error-message';
+import { setResetMethod, requestReset } from 'state/account-recovery/reset/actions';
 
-import {
-	setResetMethod,
-	requestReset,
-} from 'state/account-recovery/reset/actions';
-
-import {
-	getAccountRecoveryResetUserData,
-	getAccountRecoveryResetOptions,
-	getAccountRecoveryResetRequestError,
-	isRequestingAccountRecoveryReset,
-} from 'state/selectors';
+import { getAccountRecoveryResetUserData, getAccountRecoveryResetOptions, getAccountRecoveryResetRequestError, isRequestingAccountRecoveryReset } from 'state/selectors';
 
 export class ResetPasswordFormComponent extends Component {
 	static propTypes = {

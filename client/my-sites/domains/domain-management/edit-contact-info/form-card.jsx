@@ -2,19 +2,8 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import {
-	deburr,
-	endsWith,
-	get,
-	includes,
-	isEqual,
-	keys,
-	omit,
-	pick,
-	snakeCase,
-} from 'lodash';
+import { deburr, endsWith, get, includes, isEqual, keys, omit, pick, snakeCase } from 'lodash';
 import page from 'page';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

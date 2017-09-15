@@ -1,8 +1,7 @@
-import ReactDom from 'react-dom';
-
 /**
  * External dependencies
  */
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
@@ -11,7 +10,7 @@ import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import TrackInputChanges from 'components/track-input-changes';
 import FormTextInput from 'components/forms/form-text-input';

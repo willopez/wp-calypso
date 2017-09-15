@@ -1,10 +1,9 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Debug from 'debug';
 
 /**
@@ -21,7 +20,7 @@ import Gravatar from 'components/gravatar';
 import userLib from 'lib/user';
 import { areAllSitesSingleUser } from 'state/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import { isJetpackSite, isSingleUserSite } from 'state/sites/selectors';
+import { isJetpackSite, isSingleUserSite } from 'state/sites/selectors';
 
 const debug = new Debug( 'calypso:posts-navigation' );
 const user = userLib();

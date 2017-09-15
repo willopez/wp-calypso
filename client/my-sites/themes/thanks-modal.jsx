@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import page from 'page';
@@ -15,16 +14,7 @@ import { get } from 'lodash';
 import Dialog from 'components/dialog';
 import PulsingDot from 'components/pulsing-dot';
 import { trackClick } from './helpers';
-import {
-	getActiveTheme,
-	getCanonicalTheme,
-	getThemeDetailsUrl,
-	getThemeCustomizeUrl,
-	getThemeForumUrl,
-	isActivatingTheme,
-	hasActivatedTheme,
-	isWpcomTheme
-} from 'state/themes/selectors';
+import { getActiveTheme, getCanonicalTheme, getThemeDetailsUrl, getThemeCustomizeUrl, getThemeForumUrl, isActivatingTheme, hasActivatedTheme, isWpcomTheme } from 'state/themes/selectors';
 import { clearActivated } from 'state/themes/actions';
 import { getSite, isJetpackSite } from 'state/sites/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';

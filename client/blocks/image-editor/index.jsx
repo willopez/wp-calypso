@@ -2,48 +2,30 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-	noop,
-	isEqual,
-	partial
-} from 'lodash';
-import path from 'path';
+import { noop, isEqual, partial } from 'lodash';
 import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
 
 /**
  * Internal dependencies
  */
+import path from 'path';
 import CloseOnEscape from 'components/close-on-escape';
 import Notice from 'components/notice';
 import ImageEditorCanvas from './image-editor-canvas';
 import ImageEditorToolbar from './image-editor-toolbar';
 import ImageEditorButtons from './image-editor-buttons';
 import MediaUtils from 'lib/media/utils';
-import {
-	resetImageEditorState,
-	resetAllImageEditorState,
-	setImageEditorFileInfo,
-	setImageEditorDefaultAspectRatio
-} from 'state/ui/editor/image-editor/actions';
-import {
-	getImageEditorFileInfo,
-	isImageEditorImageLoaded
-} from 'state/ui/editor/image-editor/selectors';
+import { resetImageEditorState, resetAllImageEditorState, setImageEditorFileInfo, setImageEditorDefaultAspectRatio } from 'state/ui/editor/image-editor/actions';
+import { getImageEditorFileInfo, isImageEditorImageLoaded } from 'state/ui/editor/image-editor/selectors';
 import { getSelectedSiteId } from 'state/ui/selectors';
 import { getSite } from 'state/sites/selectors';
 import QuerySites from 'components/data/query-sites';
-import {
-	AspectRatios,
-	AspectRatiosValues
-} from 'state/ui/editor/image-editor/constants';
-import {
-	getDefaultAspectRatio
-} from './utils';
+import { AspectRatios, AspectRatiosValues } from 'state/ui/editor/image-editor/constants';
+import { getDefaultAspectRatio } from './utils';
 
 const ImageEditor = React.createClass( {
 	propTypes: {

@@ -1,27 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import url from 'url';
-import { defer } from 'lodash';
-import config from 'config';
-import classnames from 'classnames';
-
 /** @format */
 /**
  * External dependencies
  */
+import React from 'react';
+import { connect } from 'react-redux';
+import { defer } from 'lodash';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 import qs from 'qs';
 import page from 'page';
 import SocialLogo from 'social-logos';
 import { localize } from 'i18n-calypso';
+import Gridicon from 'gridicons';
 
 /**
  * Internal dependencies
  */
+import url from 'url';
+import config from 'config';
 import ReaderPopoverMenu from 'components/reader-popover/menu';
 import PopoverMenuItem from 'components/popover/menu-item';
-import Gridicon from 'gridicons';
 import * as stats from 'reader/stats';
 import { preload as preloadSection } from 'sections-preload';
 import SiteSelector from 'components/site-selector';

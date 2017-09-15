@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import { identity, isFunction } from 'lodash';
 import page from 'page';

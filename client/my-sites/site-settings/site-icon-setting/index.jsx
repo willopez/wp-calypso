@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
@@ -35,12 +34,7 @@ import MediaStore from 'lib/media/store';
 import MediaLibrarySelectedStore from 'lib/media/library-selected-store';
 import { isItemBeingUploaded } from 'lib/media/utils';
 import { getImageEditorCrop, getImageEditorTransform } from 'state/ui/editor/image-editor/selectors';
-import {
-	getSiteIconId,
-	getSiteIconUrl,
-	isPrivateSite,
-	isSiteSupportingImageEditor
-} from 'state/selectors';
+import { getSiteIconId, getSiteIconUrl, isPrivateSite, isSiteSupportingImageEditor } from 'state/selectors';
 import { errorNotice } from 'state/notices/actions';
 
 class SiteIconSetting extends Component {

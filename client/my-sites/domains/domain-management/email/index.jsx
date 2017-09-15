@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import page from 'page';
 import { localize } from 'i18n-calypso';
@@ -21,11 +20,7 @@ import VerticalNavItem from 'components/vertical-nav/item';
 import UpgradesNavigation from 'my-sites/domains/navigation';
 import EmptyContent from 'components/empty-content';
 import paths from 'my-sites/domains/paths';
-import {
-	hasGoogleApps,
-	hasGoogleAppsSupportedDomain,
-	getSelectedDomain
-} from 'lib/domains';
+import { hasGoogleApps, hasGoogleAppsSupportedDomain, getSelectedDomain } from 'lib/domains';
 import { isPlanFeaturesEnabled } from 'lib/plans';
 import EmailVerificationGate from 'components/email-verification/email-verification-gate';
 

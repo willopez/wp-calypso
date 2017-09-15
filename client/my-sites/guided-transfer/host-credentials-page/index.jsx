@@ -2,10 +2,10 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
+import page from 'page';
 
 /**
  * Internal dependencies
@@ -17,17 +17,9 @@ import Pressable from './pressable';
 import SectionHeader from 'components/section-header';
 import { cartItems } from 'lib/cart-values';
 import upgradesActions from 'lib/upgrades/actions';
-import page from 'page';
-import {
-	saveHostDetails,
-} from 'state/sites/guided-transfer/actions';
-import {
-	isGuidedTransferSavingHostDetails,
-	isGuidedTransferAwaitingPurchase,
-} from 'state/sites/guided-transfer/selectors';
-import {
-	getSiteSlug,
-} from 'state/sites/selectors';
+import { saveHostDetails } from 'state/sites/guided-transfer/actions';
+import { isGuidedTransferSavingHostDetails, isGuidedTransferAwaitingPurchase } from 'state/sites/guided-transfer/selectors';
+import { getSiteSlug } from 'state/sites/selectors';
 
 class HostCredentialsPage extends Component {
 	static propTypes = {

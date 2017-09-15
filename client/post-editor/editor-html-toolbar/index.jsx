@@ -2,23 +2,17 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-	get,
-	map,
-	reduce,
-	throttle,
-} from 'lodash';
+import { get, map, reduce, throttle } from 'lodash';
 import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
 import Gridicon from 'gridicons';
-import { Env } from 'tinymce/tinymce';
 
 /**
  * Internal dependencies
  */
+import { Env } from 'tinymce/tinymce';
 import { serialize as serializeContactForm } from 'components/tinymce/plugins/contact-form/shortcode-utils';
 import { serialize as serializeSimplePayment } from 'components/tinymce/plugins/simple-payments/shortcode-utils';
 import MediaActions from 'lib/media/actions';
@@ -29,12 +23,7 @@ import PostActions from 'lib/posts/actions';
 import { isWithinBreakpoint } from 'lib/viewport';
 import markup from 'post-editor/media-modal/markup';
 import { getSelectedSite } from 'state/ui/selectors';
-import {
-	fieldAdd,
-	fieldRemove,
-	fieldUpdate,
-	settingsUpdate
-} from 'state/ui/editor/contact-form/actions';
+import { fieldAdd, fieldRemove, fieldUpdate, settingsUpdate } from 'state/ui/editor/contact-form/actions';
 import AddImageDialog from './add-image-dialog';
 import AddLinkDialog from './add-link-dialog';
 import Button from 'components/button';

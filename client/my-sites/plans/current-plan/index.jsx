@@ -1,21 +1,16 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Main from 'components/main';
-import {
-	getCurrentPlan,
-	isCurrentPlanExpiring,
-	isRequestingSitePlans
-} from 'state/sites/plans/selectors';
+import { getCurrentPlan, isCurrentPlanExpiring, isRequestingSitePlans } from 'state/sites/plans/selectors';
 import { getSelectedSite, getSelectedSiteId } from 'state/ui/selectors';
 import { isJetpackSite } from 'state/sites/selectors';
 import DocumentHead from 'components/data/document-head';

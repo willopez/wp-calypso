@@ -1,15 +1,14 @@
 /**
- * External Dependencies
+ * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React from 'react';
 import page from 'page';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Main from 'components/main';
 import Card from 'components/card/compact';
@@ -23,11 +22,7 @@ import SectionHeader from 'components/section-header';
 import support from 'lib/url/support';
 import { getDomainsBySite } from 'state/sites/domains/selectors';
 import { getSelectedSite } from 'state/ui/selectors';
-import {
-	composeAnalytics,
-	recordGoogleEvent,
-	recordTracksEvent,
-} from 'state/analytics/actions';
+import { composeAnalytics, recordGoogleEvent, recordTracksEvent } from 'state/analytics/actions';
 
 class PrimaryDomain extends React.Component {
 	static propTypes = {

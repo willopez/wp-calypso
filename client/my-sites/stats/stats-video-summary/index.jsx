@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
@@ -14,7 +13,7 @@ import { flowRight } from 'lodash';
 import SummaryChart from '../stats-summary';
 import QuerySiteStats from 'components/data/query-site-stats';
 import { getSiteStatsNormalizedData, isRequestingSiteStatsForQuery } from 'state/stats/lists/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import { getSelectedSiteId } from 'state/ui/selectors';
 
 class StatsVideoSummary extends Component {
 	static propTypes = {

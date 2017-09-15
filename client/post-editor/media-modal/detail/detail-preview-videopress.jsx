@@ -2,7 +2,6 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import { get, invoke, noop } from 'lodash';
 import classNames from 'classnames';

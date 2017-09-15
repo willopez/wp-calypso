@@ -2,17 +2,16 @@
  * External dependencies
  */
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { filter, find, identity, isEqual } from 'lodash';
 import { localize } from 'i18n-calypso';
-import Notice from 'components/notice';
 
 /**
  * Internal dependencies
  */
+import Notice from 'components/notice';
 import AccountDialogAccount from './account-dialog-account';
 import Dialog from 'components/dialog';
 import { warningNotice } from 'state/notices/actions';
