@@ -18,8 +18,8 @@ const packageJsonDeps = []
 
 const externalDependenciesSet = new Set( packageJsonDeps );
 
-const externalBlock = { type: "Block", value: "* \n* External dependencies\n " };
-const internalBlock = { type: "Block", value: "* \n * Internal dependencies\n " };
+const externalBlock = { type: "Block", value: "*\n * External dependencies\n " };
+const internalBlock = { type: "Block", value: "*\n * Internal dependencies\n " };
 
 
 /**
