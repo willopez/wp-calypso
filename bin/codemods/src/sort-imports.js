@@ -18,8 +18,8 @@ const packageJsonDeps = []
 
 const externalDependenciesSet = new Set( packageJsonDeps );
 
-const externalBlock = { type: "Block", value: "*\n * External dependencies\n " };
-const internalBlock = { type: "Block", value: "*\n * Internal dependencies\n " };
+const externalBlock = { type: "Block", value: "* \n* External dependencies\n " };
+const internalBlock = { type: "Block", value: "* \n * Internal dependencies\n " };
 
 
 /**
@@ -55,6 +55,7 @@ const isExternal = importNode => externalDependenciesSet.has( importNode.source.
 module.exports = function ( file, api ) {
 	const j = api.jscodeshift;
 	const src = j(file.source);
+	const includeFormatBlock = shouldFormat( src.toSource().toString() );
 	const declarations = src.find(j.ImportDeclaration);
 
 	const withoutComments = declarations
@@ -72,7 +73,6 @@ module.exports = function ( file, api ) {
 		internalDeps[0].comments = [ internalBlock ]
 	}
 
-	const includeFormatBlock = shouldFormat( src.toSource.toString() );
 	const newDeclarations = []
 		.concat( includeFormatBlock && '/** @format */')
 		.concat( externalDeps )
