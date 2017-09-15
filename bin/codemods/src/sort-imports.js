@@ -49,7 +49,7 @@ const shouldFormat = text => {
 /**
  * Removes the extra newlines between two import statements
  */
-const removeExtraNewlines = str => str.replace(/(import.*\n)\n(import)/g, '$1$2');
+const removeExtraNewlines = str => str.replace(/(import.*\n)\n+(import)/g, '$1$2');
 const isExternal = importNode => externalDependenciesSet.has( importNode.source.value );
 
 module.exports = function ( file, api ) {
